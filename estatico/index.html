@@ -11,11 +11,16 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-      crossorigin="anonymous"
-    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Nunito&display=swap"
+      rel="stylesheet"
+    />
     <title>Portfolio Web - Sebastian Charras</title>
   </head>
   <body class="dark-background text-white">
@@ -65,20 +70,37 @@
         </ul>
       </nav>
     </header>
-    <p>¿Quieres tener una página web?</p>
-    <section>
-      <div>
-        <h1>Soy Sebastian, Full Stack Web Developer</h1>
+    <div class="position-relative">
+      <div class=".container-rectangulos">
+        <div class="rectangle-1"></div>
+        <div class="rectangle-2"></div>
+        <div class="rectangle-3"></div>
       </div>
-      <div>
-        <img src="assets/foto perfil.png" alt="Foto de Sebastian Charras" />
+    </div>
+    <div class="my-5-rem mx-2">
+      <p class="nunito fs-1 max-width-70 px-3">
+        ¿Quieres tener una página web?
+      </p>
+    </div>
+    <section class="container">
+      <article class="row">
+        <div class="col d-inline-flex align-items-center">
+          <h1 class="font-bold fs-2 mx-3">
+            Soy Sebastian, Full Stack Web Developer
+          </h1>
+        </div>
+        <div class="col">
+          <img
+            src="assets/foto perfil.png"
+            alt="Foto de Sebastian Charras"
+            width="100%"
+          />
+        </div>
+      </article>
+      <div class="d-flex justify-content-center my-5">
+        <a href="#conocerMas" role="button" class="btn-purple">Conocer más</a>
       </div>
     </section>
-    <div>
-      <a href="#conocerMas" role="button" class="btn btn-primary"
-        >Conocer más</a
-      >
-    </div>
     <section id="conocerMas">
       <div>
         <div>
@@ -270,7 +292,7 @@
       </article>
       <article>
         <h3>To Do List - (2022)</h3>
-        <p>Lista de pendientes, proyecto frrontend</p>
+        <p>Lista de pendientes, proyecto frontend</p>
         <a
           href="https://teal-beijinho-232898.netlify.app/"
           role="button"
@@ -281,8 +303,7 @@
       <article>
         <h3>The Great Guessing Game - (2022)</h3>
         <p>
-          Juego para adivinar qué color es el representado porr el valor rgb
-          dado
+          Juego para adivinar qué color es el representado por el valor rgb dado
         </p>
         <a
           href="https://resilient-sunburst-78181f.netlify.app/"
@@ -292,5 +313,10 @@
         >
       </article>
     </section>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
