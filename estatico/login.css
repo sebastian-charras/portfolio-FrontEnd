@@ -1,0 +1,45 @@
+* {
+  font-family: "Nunito", sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.dark-background {
+  background-color: rgb(37, 37, 37);
+}
+
+.dark-background-blur {
+  background-color: rgba(37, 37, 37, 0.5);
+  backdrop-filter: blur(50px);
+}
+
+.btn-purple {
+  background-color: #7000ff;
+  padding: 0.5em 2em;
+  text-decoration: none;
+  color: white;
+}
+
+form {
+  width: 80%;
+  padding: 2em;
+  border-radius: 10%;
+  display: flex;
+  flex-direction: column;
+}
+
+.bg-img {
+  background-image: url(assets/pexels-velroy-fernandes-4068339.jpg);
+  min-height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+}
