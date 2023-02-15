@@ -25,8 +25,8 @@
   </head>
   <body class="dark-background text-white">
     <header class="sticky-top navbar-header">
-      <nav class="navbar dark-background">
-        <ul class="container-fluid">
+      <nav class="navbar dark-background-blur">
+        <ul class="container align-items-center">
           <li class="nav-item">
             <div>
               <a
@@ -70,17 +70,8 @@
         </ul>
       </nav>
     </header>
-    <div class="position-relative">
-      <div class=".container-rectangulos">
-        <div class="rectangle-1"></div>
-        <div class="rectangle-2"></div>
-        <div class="rectangle-3"></div>
-      </div>
-    </div>
     <div class="my-5-rem mx-2">
-      <p class="nunito fs-1 max-width-70 px-3">
-        ¿Quieres tener una página web?
-      </p>
+      <p class="fs-1 max-width-70 px-3">¿Quieres tener una página web?</p>
     </div>
     <section class="container">
       <article class="row">
@@ -98,34 +89,54 @@
         </div>
       </article>
       <div class="d-flex justify-content-center my-5">
-        <a href="#conocerMas" role="button" class="btn-purple">Conocer más</a>
+        <a
+          href="mailto:sebastiancharras@outlook.com"
+          role="button"
+          class="btn-purple fs-5 rounded-pill"
+          >Entrar en contacto</a
+        >
       </div>
     </section>
-    <section id="conocerMas">
-      <div>
-        <div>
-          <img src="assets/foto perfil.png" alt="Foto de Sebastian Charras" />
-          <div>
-            <p>Sebastian Charras</p>
-            <p>Full Stack Developer Jr</p>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-4 d-flex align-items-center justify-content-center">
+            <img
+              src="assets/foto perfil miniatura.png"
+              alt="Foto de Sebastian Charras"
+              class="rounded-circle thumbnail"
+            />
+          </div>
+          <div
+            class="col-8 d-flex flex-column align-items-center justify-content-center"
+          >
+            <div class="d-table">
+              <p class="fs-2 align-table-element-center">Sebastian Charras</p>
+            </div>
+            <div class="d-table">
+              <p class="fs-5 align-table-element-center">
+                Full Stack Developer Jr
+              </p>
+            </div>
           </div>
         </div>
-        <div>
-          <p>
+        <div class="my-5 p-3">
+          <p class="fs-5">
             Desarrollo aplicaciones web, desde el diseño y la implementación de
             la interfaz gráfica hasta la base de datos, api y el servidor.
           </p>
         </div>
       </div>
     </section>
-    <br />
     <section>
-      <h2>Experiencia Laboral</h2>
-      <article>
+      <h2 class="mx-4">Experiencia Laboral</h2>
+      <article class="my-5 mx-4">
         <div>
           <img src="assets/utn_inspt_logo_iso_.png" alt="logo UTN INSPT" />
         </div>
-        <h3>Pasante Administrativo (Jul. 2022 - Feb. 2023)</h3>
+        <h3 class="my-3 fs-5">
+          Pasante Administrativo (Jul. 2022 - Feb. 2023)
+        </h3>
         <p>
           Realicé tareas en su mayor parte administrativas. También desarrollé
           un prototipo de sistema para visualizar certificados digitales usando
@@ -134,143 +145,226 @@
       </article>
     </section>
     <section>
-      <h2>Educación</h2>
-      <article>
+      <h2 class="mx-4">Educación</h2>
+      <article class="my-5 mx-4">
         <div>
           <img src="assets/utn_inspt_logo_iso_.png" alt="logo UTN INSPT" />
         </div>
-        <p>
+        <p class="my-3">
           En curso - Tecnicatura Superior en Informática Aplicada (Feb. 2021 -
           Mar. 2024)
         </p>
       </article>
-      <article>
-        <p>
+      <article class="my-5 mx-4">
+        <p class="my-3 fs-5">
           Escuela de Educación Media N° 8 Dr. Antonio Sagarna (anteriormente
-          Colegio Nacional de San Isidro) (2015 - 2020)
+          Colegio Nacional de San Isidro)
         </p>
-        <p>Bachiller en Ciencias Sociales</p>
+        <p>Bachiller en Ciencias Sociales (2015 - 2020)</p>
       </article>
-      <article>
-        <div>
-          <img
-            src="assets/logo cuv.png"
-            alt="logo Centro Universitario Vicente López"
-          />
-          <img src="assets/logo plataforma 5.svg" alt="logo Plataforma 5" />
+      <article class="my-5 mx-4">
+        <div class="container">
+          <div class="row">
+            <div class="col-6">
+              <img
+                src="assets/logo cuv.png"
+                alt="logo Centro Universitario Vicente López"
+                width="100%"
+              />
+            </div>
+            <div class="col-6">
+              <img
+                src="assets/logo plataforma 5.svg"
+                alt="logo Plataforma 5"
+                width="100%"
+              />
+            </div>
+          </div>
         </div>
-        <p>Curso de Desarrollo Web Front-end (2022)</p>
+        <p class="my-3">Curso de Desarrollo Web Front-end (2022)</p>
       </article>
-      <article>
+      <article class="my-5 mx-4">
         <div>
           <img src="assets/educacion it logo.svg" alt="logo Educación IT" />
         </div>
-        <p>Curso de Javascript Desarrollador Avanzado (2021)</p>
+        <p class="my-3">Curso de Javascript Desarrollador Avanzado (2021)</p>
       </article>
-      <article>
+      <article class="my-5 mx-4">
         <div>
           <img src="assets/educacion it logo.svg" alt="logo Educación IT" />
         </div>
-        <p>Curso de Python para no programadores (2022)</p>
+        <p class="my-3">Curso de Python para no programadores (2022)</p>
       </article>
-      <article>
+      <article class="my-5 mx-4">
         <div>
           <img src="assets/educacion it logo.svg" alt="logo Educación IT" />
         </div>
-        <p>Curso de Python Programming (2022)</p>
+        <p class="my-3">Curso de Python Programming (2022)</p>
       </article>
-      <article>
+      <article class="my-5 mx-4">
         <div>
           <img
             src="assets/logo argentina programa.png"
             alt="logo Argentina Programa"
           />
         </div>
-        <p>Primera etapa del Plan Argentina Programa - #SéProgramar (2022)</p>
+        <p class="my-3">
+          Primera etapa del Plan Argentina Programa - #SéProgramar (2022)
+        </p>
       </article>
-      <article>
+      <article class="my-5 mx-4">
         <div>
           <img
             src="assets/logo argentina programa.png"
             alt="logo Argentina Programa"
           />
         </div>
-        <p>
+        <p class="my-3">
           En curso - Segunda etapa del Plan Argentina Programa - #YoProgramo
           (2022-2023)
         </p>
       </article>
     </section>
-    <section>
-      <h2>Habilidades</h2>
-      <div>
-        <p>HTML</p>
-        <div>
-          <div style="width: 80%"></div>
+    <section class="mx-4">
+      <h2 class="mb-5">Habilidades</h2>
+      <div class="container">
+        <div class="row">
+          <div class="col-3"><p class="h">HTML</p></div>
+          <div class="progress col">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              aria-label="HTML barra de progreso"
+              style="width: 85%"
+              aria-valuenow="85"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
+          </div>
         </div>
       </div>
-      <div>
-        <p>CSS</p>
-        <div>
-          <div style="width: 90%"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-3"><p class="h">CSS</p></div>
+          <div class="progress col">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              aria-label="CSS barra de progreso"
+              style="width: 90%"
+              aria-valuenow="90"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
+          </div>
         </div>
       </div>
-      <div>
-        <p>Javascript</p>
-        <div>
-          <div style="width: 85%"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-3"><p class="h">Javascript</p></div>
+          <div class="progress col">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              aria-label="Javascript barra de progreso"
+              style="width: 85%"
+              aria-valuenow="85"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
+          </div>
         </div>
       </div>
-      <div>
-        <p>Java</p>
-        <div>
-          <div style="width: 95%"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-3"><p class="h">Java</p></div>
+          <div class="progress col">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              aria-label="Java barra de progreso"
+              style="width: 95%"
+              aria-valuenow="95"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
+          </div>
         </div>
       </div>
-      <div>
-        <p>SQL</p>
-        <div>
-          <div style="width: 70%"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-3"><p class="h">SQL</p></div>
+          <div class="progress col">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              aria-label="SQL barra de progreso"
+              style="width: 70%"
+              aria-valuenow="70"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="mx-4">
+      <h2 class="my-5">Idiomas</h2>
+      <div class="container">
+        <div class="row">
+          <div class="col-3"><p class="h">Español</p></div>
+          <div class="progress col">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              aria-label="Español barra de progreso"
+              style="width: 100%"
+              aria-valuenow="100"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-3"><p class="h">Inglés</p></div>
+          <div class="progress col">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              aria-label="Inglés barra de progreso"
+              style="width: 80%"
+              aria-valuenow="80"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
+          </div>
         </div>
       </div>
     </section>
     <section>
-      <h2>Idiomas</h2>
-      <div>
-        <p>Español</p>
-        <div>
-          <div style="width: 100%"></div>
-        </div>
-      </div>
-      <div>
-        <p>Inglés</p>
-        <div>
-          <div style="width: 80%"></div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <h2>Proyectos</h2>
-      <article>
-        <h3>Portfolio Web - (2023)</h3>
-        <p>
+      <h2 class="mt-5 mx-4">Proyectos</h2>
+      <article class="my-5 mx-4">
+        <h3 class="fs-5">Portfolio Web - (2023)</h3>
+        <p class="my-3">
           Portfolio con proyectos personales, habilidades, educación y
           experiencias laborales
         </p>
         <a href="#" role="button" class="btn btn-primary">Ver proyecto</a>
       </article>
-      <article>
-        <h3>Sistema de Gestión para Guardería de Vehículos - (2023)</h3>
-        <p>
+      <article class="my-5 mx-4">
+        <h3 class="fs-5">Sistema de Gestión para Guardería de Vehículos - (2023)</h3>
+        <p class="my-3">
           Sistema para visualizar y gestionar datos de una hipotética guardería
           de vehículos, incluídos sus administradores, empleados, garages,
           socios, vehículos y zonas
         </p>
         <a href="" role="button" class="btn btn-primary">Ver proyecto</a>
       </article>
-      <article>
-        <h3>Portfolio Web - (2022)</h3>
-        <p>
+      <article class="my-5 mx-4">
+        <h3 class="fs-5">Portfolio Web - (2022)</h3>
+        <p class="my-3">
           Portfolio Web con algunos proyectos front end, listados también aquí
         </p>
         <a
@@ -280,9 +374,9 @@
           >Ver proyecto</a
         >
       </article>
-      <article>
-        <h3>Weather Channel - (2022)</h3>
-        <p>Permite ver datos meteorológicos de la ubicación seleccionada</p>
+      <article class="my-5 mx-4">
+        <h3 class="fs-5">Weather Channel - (2022)</h3>
+        <p class="my-3">Permite ver datos meteorológicos de la ubicación seleccionada</p>
         <a
           href="https://incandescent-crostata-2ea2ef.netlify.app/"
           role="button"
@@ -290,9 +384,9 @@
           >Ver proyecto</a
         >
       </article>
-      <article>
-        <h3>To Do List - (2022)</h3>
-        <p>Lista de pendientes, proyecto frontend</p>
+      <article class="my-5 mx-4">
+        <h3 class="fs-5">To Do List - (2022)</h3>
+        <p class="my-3">Lista de pendientes, proyecto frontend</p>
         <a
           href="https://teal-beijinho-232898.netlify.app/"
           role="button"
@@ -300,9 +394,9 @@
           >Ver proyecto</a
         >
       </article>
-      <article>
-        <h3>The Great Guessing Game - (2022)</h3>
-        <p>
+      <article class="my-5 mx-4">
+        <h3 class="fs-5">The Great Guessing Game - (2022)</h3>
+        <p class="my-3">
           Juego para adivinar qué color es el representado por el valor rgb dado
         </p>
         <a

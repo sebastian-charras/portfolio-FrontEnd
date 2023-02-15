@@ -1,3 +1,7 @@
+* {
+  font-family: "Nunito", sans-serif;
+}
+
 html,
 body {
   margin: 0;
@@ -5,7 +9,12 @@ body {
 }
 
 .dark-background {
-  background-color: #252525;
+  background-color: rgb(37, 37, 37);
+}
+
+.dark-background-blur {
+  background-color: rgba(37, 37, 37, 0.5);
+  backdrop-filter: blur(50px);
 }
 
 ul {
@@ -33,10 +42,8 @@ ul {
 }
 
 .btn-purple {
-  border-radius: 100px;
-  border: none;
   background-color: #7000ff;
-  padding: 10px 25px;
+  padding: 0.5em 2em;
   text-decoration: none;
   color: white;
 }
@@ -50,47 +57,13 @@ ul {
   margin-bottom: 5rem;
 }
 
-.container-rectangulos {
-  position: absolute;
-  width: 205.7px;
-  height: 124.23px;
-  left: -64px;
-  top: 275px;
+.thumbnail {
+  max-width: 25vw;
+  max-height: 25vw;
 }
 
-.rectangle-1 {
-  z-index: -1;
-  position: absolute;
-  left: 25.77%;
-  right: -1.6%;
-  top: 81.61%;
-  bottom: -1.74%;
-  background: #7000ff;
-  transform: rotate(-25deg);
-}
-
-.rectangle-2 {
-  z-index: -1;
-  position: absolute;
-  left: 11.67%;
-  right: 12.49%;
-  top: 67.12%;
-  bottom: 12.75%;
-  background: #00a3ff;
-  transform: rotate(-25deg);
-}
-
-.rectangle-3 {
-  z-index: -1;
-  position: absolute;
-  left: 0%;
-  right: 24.16%;
-  top: 51.03%;
-  bottom: 28.85%;
-  background: #dbff00;
-  transform: rotate(-25deg);
-}
-
-.position-relative {
-    position: relative;
+.align-table-element-center {
+  align-items: center;
+  vertical-align: middle;
+  display: table-cell;
 }
