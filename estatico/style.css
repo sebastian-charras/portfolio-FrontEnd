@@ -41,7 +41,7 @@ nav img {
   font-family: "Nunito", sans-serif;
 }
 
-.max-width-70 {
+.max-width-70-only-small {
   max-width: 70%;
 }
 
@@ -74,4 +74,21 @@ nav img {
   align-items: center;
   vertical-align: middle;
   display: table-cell;
+}
+
+@media(min-width: 768px){
+ .page-container {
+    margin: 0 10%;
+    padding: 2em 1em;
+    border-radius: 25px;
+  }
+
+  .max-width-70-only-small {
+    max-width: 100%;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-rows: 60% 40%;
+  }
 }
