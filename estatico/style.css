@@ -101,8 +101,8 @@ nav img {
     margin: 0;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: cover;
-    background-position: left top;
+    background-size: 800px;
+    background-position: left bottom;
   }
 
   .page-container {

@@ -29,17 +29,19 @@ body {
 form {
   width: 80%;
   padding: 2em;
-  border-radius: 10%;
+  border-radius: 25px;
   display: flex;
   flex-direction: column;
+  max-width: 500px;
 }
 
 .bg-img {
-  background-image: url(assets/pexels-velroy-fernandes-4068339.jpg);
+  background-color: rgb(37, 37, 37);
+  background-image: url(assets/figures\ bg.svg);
   min-height: 100%;
   margin: 0;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-position: center center;
+  background-position: left top;
 }
