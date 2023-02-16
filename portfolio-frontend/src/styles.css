@@ -3,6 +3,7 @@
   color-scheme: dark;
 }
 
-body {
-  margin-bottom: -1em !important;
+.flex-wrap-element {
+  margin: 2em;
+  flex-basis: 30em;
 }
