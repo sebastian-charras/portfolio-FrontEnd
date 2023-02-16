@@ -25,21 +25,12 @@ ul {
   border-radius: 100px !important;
 }
 
-nav {
-  padding: 0 !important;
-  background-color: red !important;
-}
-
 nav div {
   height: auto !important;
 }
 
 nav img {
   height: 1.5em;
-}
-
-nav * {
-  background-color: green !important;
 }
 
 .col {
