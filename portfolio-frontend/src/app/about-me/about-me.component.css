@@ -1,0 +1,15 @@
+.thumbnail {
+  max-width: 25vw;
+  max-height: 25vw;
+}
+
+@media (min-width: 768px) {
+  .flex-wrap-element {
+    margin: 2em;
+    flex-basis: 30em;
+  }
+
+  .thumbnail {
+    width: 100%;
+  }
+}

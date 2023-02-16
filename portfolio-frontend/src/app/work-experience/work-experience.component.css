@@ -1,0 +1,6 @@
+@media (min-width: 768px) {
+  .flex-wrap-element {
+    margin: 2em;
+    flex-basis: 30em;
+  }
+}

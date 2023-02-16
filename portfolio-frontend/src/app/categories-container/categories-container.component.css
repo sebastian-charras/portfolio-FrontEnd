@@ -1,0 +1,8 @@
+@media (min-width: 768px) {
+  .flex-wrap-container {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    justify-content: space-around;
+  }
+}

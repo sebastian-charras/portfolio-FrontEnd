@@ -1,0 +1,40 @@
+.full-screen {
+  width: 100vw;
+  height: 100vh;
+}
+
+.dark-background {
+  background-color: rgb(37, 37, 37);
+}
+
+.dark-background-blur {
+  background-color: rgba(37, 37, 37, 0.5);
+  backdrop-filter: blur(50px);
+}
+
+.btn-purple {
+  background-color: #7000ff;
+  padding: 0.5em 2em;
+  text-decoration: none;
+  color: white;
+}
+
+form {
+  width: 80%;
+  padding: 2em;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+}
+
+.bg-img {
+  background-color: rgb(37, 37, 37);
+  background-image: url(/../../assets/figures\ bg.svg);
+  min-height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: left top;
+}

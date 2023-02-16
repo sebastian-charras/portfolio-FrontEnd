@@ -1,0 +1,11 @@
+@media (min-width: 768px) {
+  .page-container {
+    margin: 1em 10%;
+    padding: 0;
+    border-radius: 25px;
+    background-color: rgba(37, 37, 37, 0.2);
+    backdrop-filter: blur(50px);
+    overflow-y: auto;
+    height: 100%;
+  }
+}
