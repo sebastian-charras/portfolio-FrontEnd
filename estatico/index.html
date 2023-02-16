@@ -23,9 +23,9 @@
     />
     <title>Portfolio Web - Sebastian Charras</title>
   </head>
-  <body class="dark-background text-white">
+  <body class="dark-background text-white bg-img">
     <header class="navbar-header sticky-top">
-      <nav class="navbar dark-background-blur p-3">
+      <nav class="navbar p-3 dark-background-blur">
         <div class="nav-item">
           <a
             href="https://www.argentina.gob.ar/economia/conocimiento/argentina-programa"
@@ -43,23 +43,26 @@
           /></a>
           <a
             href="https://www.linkedin.com/in/sebastian-charras-991239208/"
-            class="navbar-brand"
+            class="navbar-brand bg-transparent"
             ><img src="assets/In-White-34-Ôö¼┬½.png" alt="Ir a LinkedIn"
           /></a>
           <a
             href="login.html"
             role="button"
-            class="btn btn-outline-light border-radius-100"
+            class="btn btn-outline-light border-radius-100 bg-transparent"
             >Login</a
           >
         </div>
       </nav>
     </header>
-    <div class="page-container bg-purple">
-      <div class="my-5-rem mx-2 my-md-0">
-        <p class="fs-1 max-width-70-only-small px-3">¿Quieres tener una página web?</p>
-      </div>
+    <div class="page-container">
       <section class="container hero">
+        <!--
+        <div class="my-5-rem mx-2 my-md-0 container-question">
+          <p class="fs-1 max-width-70-only-small px-3">
+            ¿Quieres tener una página web?
+          </p>
+        </div>
         <article class="row">
           <div class="col d-inline-flex align-items-center">
             <h1 class="font-bold fs-2 mx-3">
@@ -74,12 +77,38 @@
             />
           </div>
         </article>
+        -->
+        <div class="container-question p-0">
+          <p class="fs-1 max-width-70-only-small m-md-0">
+            ¿Quieres tener una página web?
+          </p>
+        </div>
+        <div class="d-inline-flex align-items-center">
+          <h1 class="font-bold fs-2 mx-3">
+            Soy Sebastian, Full Stack Web Developer
+          </h1>
+        </div>
+        <div class="hero-img-container">
+          <img
+            src="assets/foto perfil.png"
+            alt="Foto de Sebastian Charras"
+            width="100%"
+          />
+        </div>
         <div class="d-flex justify-content-center my-5">
+          <!--
+          <a
+            href="mailto:sebastiancharras@outlook.com"
+            role="button"
+            class="btn-purple fs-5 rounded-pill d-inline-block text-center text-nowrap btn btn-secondary btn-contact"
+            >Contactarme</a
+          >
+          -->
           <a
             href="mailto:sebastiancharras@outlook.com"
             role="button"
             class="btn-purple fs-5 rounded-pill d-inline-block text-center text-nowrap"
-            >Entrar en contacto</a
+            >Contactarme</a
           >
         </div>
       </section>
