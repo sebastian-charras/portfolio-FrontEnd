@@ -15,6 +15,9 @@ import { SkillsComponent } from './skills/skills.component';
 import { LanguagesComponent } from './languages/languages.component';
 import { EducationComponent } from './education/education.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { EducationSectionComponent } from './education-section/education-section.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -31,10 +34,12 @@ import { ProjectsComponent } from './projects/projects.component';
     LanguagesComponent,
     EducationComponent,
     ProjectsComponent,
+    EducationSectionComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
