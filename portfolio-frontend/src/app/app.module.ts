@@ -11,7 +11,6 @@ import { HeroComponent } from './hero/hero.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { CategoriesContainerComponent } from './categories-container/categories-container.component';
 import { WorkExperienceComponent } from './work-experience/work-experience.component';
-import { LanguagesComponent } from './languages/languages.component';
 import { EducationComponent } from './education/education.component';
 import { EducationSectionComponent } from './education-section/education-section.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -33,7 +32,6 @@ import { SkillsContainerComponent } from './skills-container/skills-container.co
     AboutMeComponent,
     CategoriesContainerComponent,
     WorkExperienceComponent,
-    LanguagesComponent,
     EducationComponent,
     EducationSectionComponent,
     WorkExperienceContainerComponent,
