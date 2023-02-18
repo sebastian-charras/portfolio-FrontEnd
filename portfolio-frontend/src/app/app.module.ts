@@ -11,12 +11,15 @@ import { HeroComponent } from './hero/hero.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { CategoriesContainerComponent } from './categories-container/categories-container.component';
 import { WorkExperienceComponent } from './work-experience/work-experience.component';
-import { SkillsComponent } from './skills/skills.component';
 import { LanguagesComponent } from './languages/languages.component';
 import { EducationComponent } from './education/education.component';
-import { ProjectsComponent } from './projects/projects.component';
 import { EducationSectionComponent } from './education-section/education-section.component';
 import { HttpClientModule } from '@angular/common/http';
+import { WorkExperienceContainerComponent } from './work-experience-container/work-experience-container.component';
+import { ProjectsContainerComponent } from './projects-container/projects-container.component';
+import { ProjectComponent } from './project/project.component';
+import { SkillComponent } from './skill/skill.component';
+import { SkillsContainerComponent } from './skills-container/skills-container.component';
 
 
 @NgModule({
@@ -30,11 +33,14 @@ import { HttpClientModule } from '@angular/common/http';
     AboutMeComponent,
     CategoriesContainerComponent,
     WorkExperienceComponent,
-    SkillsComponent,
     LanguagesComponent,
     EducationComponent,
-    ProjectsComponent,
     EducationSectionComponent,
+    WorkExperienceContainerComponent,
+    ProjectsContainerComponent,
+    ProjectComponent,
+    SkillComponent,
+    SkillsContainerComponent,
   ],
   imports: [
     BrowserModule,

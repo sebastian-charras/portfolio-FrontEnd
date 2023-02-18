@@ -1,4 +1,4 @@
-export interface person {
+export interface Person {
   id: number;
   name: string | null;
   surname: string | null;
@@ -7,4 +7,7 @@ export interface person {
   email: string | null;
   githubUrl: string | null;
   linkedinUrl: string | null;
+  heroImageUrl: string;
+  profilePictureUrl: string;
+  catchPhrase: string;
 }

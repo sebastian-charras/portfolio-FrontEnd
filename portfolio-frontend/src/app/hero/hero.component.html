@@ -1,22 +1,22 @@
 <section class="hero">
   <div class="container-question p-0 mt-md-5">
-    <p class="fs-1 max-width-70-only-small">¿Quieres tener una página web?</p>
+    <p class="fs-1 max-width-70-only-small">{{ person.catchPhrase }}</p>
   </div>
   <div class="d-inline-flex align-items-center justify-content-center">
     <h1 class="font-bold mx-3 text-center">
-      Soy Sebastian, Full Stack Web Developer
+      Soy {{ person.name }}, {{ person.title }}
     </h1>
   </div>
   <div class="hero-img-container">
     <img
-      src="assets/foto perfil.png"
-      alt="Foto de Sebastian Charras"
+      [src]="person.heroImageUrl"
+      [alt]="'Foto de ' + person.name + ' ' + person.surname"
       width="100%"
     />
   </div>
   <div class="d-flex justify-content-center my-5 contactarme-container">
     <a
-      href="mailto:sebastiancharras@outlook.com"
+      [href]="'mailto:' + person.email"
       role="button"
       class="btn-purple fs-5 rounded-pill d-inline-block text-center text-nowrap"
       >Contactarme</a

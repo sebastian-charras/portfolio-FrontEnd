@@ -1,6 +1,6 @@
 import { Institution } from './institution';
 
-export interface workExperience {
+export interface WorkExperience {
   id: number;
   institution: Institution | null;
   title: string;

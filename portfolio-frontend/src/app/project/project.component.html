@@ -1,0 +1,19 @@
+<article class="my-5 mx-4 text-center">
+  <h3 class="fs-5">
+    <span *ngIf="!project.completed">Actualmente - </span
+    >{{ project.title + " - (" + project.period + ")" }}
+  </h3>
+  <p class="my-3">{{ project.description }}</p>
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-auto">
+        <a
+          [href]="project.url"
+          role="button"
+          class="btn-purple rounded-pill d-inline-block text-center text-nowrap"
+          >Ver proyecto</a
+        >
+      </div>
+    </div>
+  </div>
+</article>
