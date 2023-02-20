@@ -5,7 +5,12 @@
       [alt]="'logo de ' + workExperience.institution?.name"
       src="assets/utn_inspt_logo_iso_.png"
       alt="logo UTN INSPT"
+      class="mx-4"
     />
+    <div *ngIf="isLogged" class="d-flex align-items-center justify-content-center">
+      <button class="material-symbols-outlined edit-btn m-2">edit</button>
+      <button class="material-symbols-outlined delete-btn m-2">delete</button>
+    </div>
   </div>
   <h3 class="my-3 fs-5">
     <span *ngIf="!workExperience.completed">Actualmente - </span

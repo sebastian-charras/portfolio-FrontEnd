@@ -5,18 +5,26 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 
 const routes: Routes = [
   {
-    path: '', redirectTo: 'portfolio', pathMatch: 'full'
+    path: '',
+    redirectTo: 'portfolio',
+    pathMatch: 'full',
   },
   {
-    path: 'portfolio', component: PortfolioComponent
+    path: 'portfolio',
+    component: PortfolioComponent,
   },
   {
-    path: 'login', component: LoginComponent
-  }
+    path: 'login',
+    component: LoginComponent,
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes, {
+      onSameUrlNavigation: 'reload',
+    }),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Project } from '../entities/project';
+import { LoginService } from '../services/login/login.service';
 import { ProjectService } from '../services/project/project.service';
 
 @Component({
@@ -10,8 +11,12 @@ import { ProjectService } from '../services/project/project.service';
 export class ProjectsContainerComponent {
   private _projects: Project[] = [];
 
-  constructor(private projectService: ProjectService) {
+  constructor(private projectService: ProjectService, private loginService: LoginService) {
     this.fetchProjects();
+  }
+
+  public get isLogged(): boolean {
+    return this.loginService.isLogged;
   }
 
   public get projects() {

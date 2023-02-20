@@ -19,7 +19,7 @@ import { ProjectsContainerComponent } from './projects-container/projects-contai
 import { ProjectComponent } from './project/project.component';
 import { SkillComponent } from './skill/skill.component';
 import { SkillsContainerComponent } from './skills-container/skills-container.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -43,9 +43,11 @@ import { SkillsContainerComponent } from './skills-container/skills-container.co
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

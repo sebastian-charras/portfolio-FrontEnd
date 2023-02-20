@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { WorkExperience } from '../entities/workExperience';
+import { LoginService } from '../services/login/login.service';
 import { WorkExperienceService } from '../services/work-experience/work-experience.service';
 
 @Component({
@@ -10,8 +11,15 @@ import { WorkExperienceService } from '../services/work-experience/work-experien
 export class WorkExperienceContainerComponent {
   private _workExperiences: WorkExperience[] = [];
 
-  constructor(private workExperienceService: WorkExperienceService) {
+  constructor(
+    private workExperienceService: WorkExperienceService,
+    private loginService: LoginService
+  ) {
     this.fetchWorkExperience();
+  }
+
+  public get isLogged(): boolean {
+    return this.loginService.isLogged;
   }
 
   public get workExperiences(): WorkExperience[] {

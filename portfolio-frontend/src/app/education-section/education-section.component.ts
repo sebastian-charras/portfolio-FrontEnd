@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Education } from '../entities/education';
 import { EducationService } from '../services/education/education.service';
+import { LoginService } from '../services/login/login.service';
 
 @Component({
   selector: 'app-education-section',
@@ -9,8 +10,15 @@ import { EducationService } from '../services/education/education.service';
 })
 export class EducationSectionComponent {
   private _educations: Education[] = [];
-  constructor(private educationService: EducationService) {
+  constructor(
+    private educationService: EducationService,
+    private loginService: LoginService
+  ) {
     this.fetchEducations();
+  }
+
+  public get isLogged(): boolean {
+    return this.loginService.isLogged;
   }
 
   public get educations(): Education[] {

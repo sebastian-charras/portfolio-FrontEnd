@@ -38,3 +38,11 @@ form {
   background-size: 800px;
   background-position: left bottom;
 }
+
+.btn-submit {
+  background-color: #7000ff;
+  padding: 0.5em 2em;
+  text-decoration: none;
+  color: white;
+  border: none;
+}

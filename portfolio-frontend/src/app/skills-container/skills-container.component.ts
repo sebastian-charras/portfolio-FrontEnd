@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Skill } from '../entities/skill';
+import { LoginService } from '../services/login/login.service';
 import { SkillService } from '../services/skill/skill.service';
 
 @Component({
@@ -10,8 +11,15 @@ import { SkillService } from '../services/skill/skill.service';
 export class SkillsContainerComponent {
   private _skills: Skill[] = [];
 
-  constructor(private skillService: SkillService) {
+  constructor(
+    private skillService: SkillService,
+    private loginService: LoginService
+  ) {
     this.fetchSkills();
+  }
+
+  public get isLogged(): boolean {
+    return this.loginService.isLogged;
   }
 
   public get skills(): Skill[] {

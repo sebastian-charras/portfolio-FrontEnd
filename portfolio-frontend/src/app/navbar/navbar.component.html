@@ -12,23 +12,26 @@
       </a>
     </div>
     <div class="nav-item bg-transparent">
-      <a
-        href="https://github.com/sebastian-charras"
-        class="navbar-brand bg-transparent"
+      <a [href]="person?.githubUrl" class="navbar-brand bg-transparent"
         ><img src="assets/github-mark-white.png" alt="Ir a Github"
       /></a>
-      <a
-        href="https://www.linkedin.com/in/sebastian-charras-991239208/"
-        class="navbar-brand bg-transparent"
+      <a [href]="person?.linkedinUrl" class="navbar-brand bg-transparent"
         ><img src="assets/In-White-34-Ôö¼┬½.png" alt="Ir a LinkedIn"
       /></a>
       <a
-        href="login.html"
+        *ngIf="!isLogged"
         role="button"
         class="btn btn-outline-light border-radius-100 bg-transparent"
         routerLink="/login"
         >Login</a
       >
+      <button
+        *ngIf="isLogged"
+        (click)="logOut()"
+        class="btn btn-outline-light border-radius-100 bg-transparent"
+      >
+        Logout
+      </button>
     </div>
   </nav>
 </header>

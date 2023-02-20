@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { WorkExperience } from '../entities/workExperience';
+import { LoginService } from '../services/login/login.service';
 
 @Component({
   selector: 'app-work-experience',
@@ -8,6 +9,12 @@ import { WorkExperience } from '../entities/workExperience';
 })
 export class WorkExperienceComponent {
   private _workExperience!: WorkExperience;
+
+  constructor(private loginService: LoginService) {}
+
+  public get isLogged(): boolean {
+    return this.loginService.isLogged;
+  }
 
   public get workExperience(): WorkExperience {
     return this._workExperience;
