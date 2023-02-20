@@ -1,5 +1,5 @@
 export interface Institution {
-  id: number;
+  id: number | null;
   name: string;
   logoUrl: string | null;
 }

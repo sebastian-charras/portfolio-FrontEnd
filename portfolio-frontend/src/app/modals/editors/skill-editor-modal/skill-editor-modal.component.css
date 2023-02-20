@@ -1,0 +1,21 @@
+.close-btn,
+.save-btn {
+  background-color: #7000ff;
+  padding: 0.5em;
+  text-decoration: none;
+  color: white;
+  border: none;
+  border-radius: 25px;
+}
+
+.modal-content {
+  margin: 1em 10% 0 10%;
+  max-width: 80%;
+  padding: 0;
+  border-radius: 25px;
+  background-color: rgba(37, 37, 37, 0.2);
+  backdrop-filter: blur(50px);
+  overflow-y: auto;
+  height: 100%;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}

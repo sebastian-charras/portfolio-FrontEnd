@@ -1,7 +1,7 @@
 import { Institution } from './institution';
 
 export interface WorkExperience {
-  id: number;
+  id: number | null;
   institution: Institution | null;
   title: string;
   period: string;

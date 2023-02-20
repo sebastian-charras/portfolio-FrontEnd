@@ -1,5 +1,5 @@
 export interface Project {
-  id: number;
+  id: number | null;
   title: string;
   period: string;
   completed: boolean | null;
