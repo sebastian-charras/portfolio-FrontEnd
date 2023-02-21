@@ -1,0 +1,39 @@
+<div class="modal" tabindex="-1" [ngStyle]="{ display: 'block' }">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar experiencia laboral</h5>
+        <button
+          type="button"
+          class="material-symbols-outlined close-btn"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="close()"
+        >
+          close
+        </button>
+      </div>
+      <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+        <div class="modal-body">
+          <label for="title">Título</label>
+          <input type="text" id="title" formControlName="title" />
+          <label for="period">Período (por ej. 2022 - 2023)</label>
+          <input type="text" id="period" formControlName="period" />
+          <label for="completed">¿Ya ha sido completada?</label>
+          <input type="checkbox" id="completed" formControlName="completed" />
+          <label for="description">Descripción</label>
+          <textarea
+            type="text"
+            id="description"
+            formControlName="description"
+          ></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="material-symbols-outlined save-btn">
+            save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

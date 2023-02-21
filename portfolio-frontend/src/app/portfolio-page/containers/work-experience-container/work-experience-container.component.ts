@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { ModalType } from 'src/app/entities/modalType';
 import { WorkExperience } from 'src/app/entities/workExperience';
 import { LoginService } from 'src/app/services/login/login.service';
+import { ModalService } from 'src/app/services/modal/modal.service';
 import { WorkExperienceService } from 'src/app/services/work-experience/work-experience.service';
 
 @Component({
@@ -13,9 +15,13 @@ export class WorkExperienceContainerComponent {
 
   constructor(
     private workExperienceService: WorkExperienceService,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private modalService: ModalService
   ) {
     this.fetchWorkExperience();
+    this.workExperienceService.change.subscribe(() =>
+      this.fetchWorkExperience()
+    );
   }
 
   public get isLogged(): boolean {
@@ -32,5 +38,9 @@ export class WorkExperienceContainerComponent {
       .subscribe(
         (workExperiences) => (this._workExperiences = workExperiences)
       );
+  }
+
+  public showCreateModal(): void {
+    this.modalService.type = ModalType.CREATE_WORK_EXPERIENCE;
   }
 }

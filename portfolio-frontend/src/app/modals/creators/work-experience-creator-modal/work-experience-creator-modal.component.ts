@@ -1,29 +1,28 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ModalType } from 'src/app/entities/modalType';
-import { Project } from 'src/app/entities/project';
+import { WorkExperience } from 'src/app/entities/workExperience';
 import { ModalService } from 'src/app/services/modal/modal.service';
-import { ProjectService } from 'src/app/services/project/project.service';
+import { WorkExperienceService } from 'src/app/services/work-experience/work-experience.service';
 
 @Component({
-  selector: 'app-project-creator-modal',
-  templateUrl: './project-creator-modal.component.html',
-  styleUrls: ['./project-creator-modal.component.css'],
+  selector: 'app-work-experience-creator-modal',
+  templateUrl: './work-experience-creator-modal.component.html',
+  styleUrls: ['./work-experience-creator-modal.component.css'],
 })
-export class ProjectCreatorModalComponent {
+export class WorkExperienceCreatorModalComponent {
   private _form: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
     private modalService: ModalService,
-    private projectService: ProjectService
+    private workExperienceService: WorkExperienceService
   ) {
     this._form = this.formBuilder.group({
       title: ['', [Validators.required]],
       period: ['', [Validators.required]],
-      completed: [false, []],
-      description: ['', []],
-      url: ['', []],
+      completed: [false, [Validators.required]],
+      description: ['', [Validators.required]],
     });
   }
 
@@ -42,24 +41,25 @@ export class ProjectCreatorModalComponent {
   public onSubmit(event: Event): void {
     if (this.form.valid) {
       this.modalService.type = ModalType.HIDDEN;
-      this.projectService.newProject(this.project).subscribe();
+      this.workExperienceService
+        .newWorkExperience(this.workExperience)
+        .subscribe();
     }
   }
 
-  public get project(): Project {
+  public get workExperience(): WorkExperience {
     let title: string = this.form.controls['title'].value;
     let period: string = this.form.controls['period'].value;
     let completed: boolean = this.form.controls['completed'].value;
     let description: string = this.form.controls['description'].value;
-    let url: string = this.form.controls['url'].value;
 
     return {
       id: null,
+      institution: null,
       title: title,
       period: period,
       completed: completed,
       description: description,
-      url: url,
     };
   }
 }

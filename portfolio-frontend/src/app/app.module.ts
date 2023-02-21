@@ -29,6 +29,8 @@ import { InstitutionComponent } from './portfolio-page/entity-views/institution/
 import { InstitutionContainerComponent } from './portfolio-page/containers/institution-container/institution-container.component';
 import { InstitutionCreatorModalComponent } from './modals/creators/institution-creator-modal/institution-creator-modal.component';
 import { InstitutionEditorModalComponent } from './modals/editors/institution-editor-modal/institution-editor-modal.component';
+import { WorkExperienceCreatorModalComponent } from './modals/creators/work-experience-creator-modal/work-experience-creator-modal.component';
+import { WorkExperienceEditorModalComponent } from './modals/editors/work-experience-editor-modal/work-experience-editor-modal.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +60,8 @@ import { InstitutionEditorModalComponent } from './modals/editors/institution-ed
     InstitutionContainerComponent,
     InstitutionCreatorModalComponent,
     InstitutionEditorModalComponent,
+    WorkExperienceCreatorModalComponent,
+    WorkExperienceEditorModalComponent,
   ],
   imports: [
     BrowserModule,

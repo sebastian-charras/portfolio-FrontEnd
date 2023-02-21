@@ -1,6 +1,6 @@
 import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { EventEmitter, Injectable } from '@angular/core';
+import { Observable, tap } from 'rxjs';
 import { WorkExperience } from 'src/app/entities/workExperience';
 import { ApiRouteService } from '../api-route/api-route.service';
 
@@ -8,13 +8,12 @@ import { ApiRouteService } from '../api-route/api-route.service';
   providedIn: 'root',
 })
 export class WorkExperienceService {
+  private _change = new EventEmitter<any>();
+  private _editableWorkExperience?: WorkExperience;
   private workExperienceUrl: string;
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-  constructor(
-    private http: HttpClient,
-    apiRouteProvider: ApiRouteService
-  ) {
+  constructor(private http: HttpClient, apiRouteProvider: ApiRouteService) {
     this.workExperienceUrl = apiRouteProvider.route + 'workExperience';
   }
 
@@ -27,22 +26,28 @@ export class WorkExperienceService {
   }
 
   public newWorkExperience(workExperience: WorkExperience): Observable<any> {
-    return this.http.post(this.workExperienceUrl, workExperience, {
-      headers: this.httpHeaders,
-    });
+    return this.http
+      .post(this.workExperienceUrl, workExperience, {
+        headers: this.httpHeaders,
+      })
+      .pipe(tap((_: any) => this.change.emit()));
   }
 
   public replaceWorkExperience(
     id: number,
     workExperience: WorkExperience
   ): Observable<any> {
-    return this.http.put(this.workExperienceUrl + '/' + id, workExperience, {
-      headers: this.httpHeaders,
-    });
+    return this.http
+      .put(this.workExperienceUrl + '/' + id, workExperience, {
+        headers: this.httpHeaders,
+      })
+      .pipe(tap((_: any) => this.change.emit()));
   }
 
   public deleteWorkExperience(id: number): Observable<WorkExperience> {
-    return this.http.delete<WorkExperience>(this.workExperienceUrl + '/' + id);
+    return this.http
+      .delete<WorkExperience>(this.workExperienceUrl + '/' + id)
+      .pipe(tap((_: any) => this.change.emit()));
   }
 
   public addInstitution(
@@ -69,5 +74,19 @@ export class WorkExperienceService {
         params: httpParams,
       }
     );
+  }
+
+  public get change(): EventEmitter<any> {
+    return this._change;
+  }
+
+  public get editableWorkExperience(): WorkExperience | undefined {
+    return this._editableWorkExperience;
+  }
+
+  public set editableWorkExperience(
+    workExperience: WorkExperience | undefined
+  ) {
+    this._editableWorkExperience = workExperience;
   }
 }
