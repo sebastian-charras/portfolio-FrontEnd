@@ -4,3 +4,18 @@
 <app-skill-editor-modal
   *ngIf="type === ModalType.EDIT_SKILL"
 ></app-skill-editor-modal>
+<app-project-creator-modal
+  *ngIf="type === ModalType.CREATE_PROJECT"
+></app-project-creator-modal>
+<app-project-editor-modal
+  *ngIf="type === ModalType.EDIT_PROJECT"
+></app-project-editor-modal>
+<app-person-editor-modal
+  *ngIf="type === ModalType.EDIT_PERSON"
+></app-person-editor-modal>
+<app-institution-creator-modal
+  *ngIf="type === ModalType.CREATE_INSTITUTION"
+></app-institution-creator-modal>
+<app-institution-editor-modal
+  *ngIf="type === ModalType.EDIT_INSTITUTION"
+></app-institution-editor-modal>

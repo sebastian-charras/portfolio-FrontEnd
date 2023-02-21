@@ -1,0 +1,31 @@
+<div class="modal" tabindex="-1" [ngStyle]="{ display: 'block' }">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar institución</h5>
+        <button
+          type="button"
+          class="material-symbols-outlined close-btn"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="close()"
+        >
+          close
+        </button>
+      </div>
+      <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+        <div class="modal-body">
+          <label for="name">Nombre de la institución</label>
+          <input type="text" id="name" formControlName="name" />
+          <label for="logoUrl">URL del logo</label>
+          <input type="text" id="logoUrl" formControlName="logoUrl" />
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="material-symbols-outlined save-btn">
+            save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

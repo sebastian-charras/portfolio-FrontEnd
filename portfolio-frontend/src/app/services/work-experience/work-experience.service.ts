@@ -13,7 +13,7 @@ export class WorkExperienceService {
 
   constructor(
     private http: HttpClient,
-    private apiRouteProvider: ApiRouteService
+    apiRouteProvider: ApiRouteService
   ) {
     this.workExperienceUrl = apiRouteProvider.route + 'workExperience';
   }

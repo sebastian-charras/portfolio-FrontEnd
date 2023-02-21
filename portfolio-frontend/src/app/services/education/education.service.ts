@@ -13,7 +13,7 @@ export class EducationService {
 
   constructor(
     private http: HttpClient,
-    private apiRouteProvider: ApiRouteService
+    apiRouteProvider: ApiRouteService
   ) {
     this.educationUrl = apiRouteProvider.route + 'education';
   }

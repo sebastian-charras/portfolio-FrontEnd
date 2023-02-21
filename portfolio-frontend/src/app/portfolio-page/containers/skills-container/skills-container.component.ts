@@ -38,12 +38,4 @@ export class SkillsContainerComponent {
     this.modalService.type = ModalType.CREATE_SKILL;
   }
 
-  public borrar(skill: Skill) {
-    let index = this._skills.indexOf(skill);
-    this._skills.splice(index, 1);
-  }
-
-  public agregar(skill: Skill) {
-    this._skills.push(skill);
-  }
 }

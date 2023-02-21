@@ -1,0 +1,37 @@
+<div class="modal" tabindex="-1" [ngStyle]="{ display: 'block' }">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar proyecto</h5>
+        <button
+          type="button"
+          class="material-symbols-outlined close-btn"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="close()"
+        >
+          close
+        </button>
+      </div>
+      <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+        <div class="modal-body">
+          <label for="title">Titulo del proyecto</label>
+          <input type="text" id="title" formControlName="title" />
+          <label for="period">Periodo de colaboración (ej. 2020 - 2021)</label>
+          <input type="text" id="period" formControlName="period" />
+          <label for="completed">¿Ya ha sido completado?</label>
+          <input type="checkbox" id="completed" formControlName="completed" />
+          <label for="description">Descripción</label>
+          <textarea type="text" id="description" formControlName="description"></textarea>
+          <label for="url">URL</label>
+          <input type="text" id="url" formControlName="url" />
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="material-symbols-outlined save-btn">
+            save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

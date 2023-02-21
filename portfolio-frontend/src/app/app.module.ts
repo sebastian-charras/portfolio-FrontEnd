@@ -22,6 +22,13 @@ import { WorkExperienceComponent } from './portfolio-page/entity-views/work-expe
 import { PortfolioComponent } from './portfolio-page/portfolio/portfolio.component';
 import { ModalContainerComponent } from './portfolio-page/containers/modal-container/modal-container.component';
 import { SkillEditorModalComponent } from './modals/editors/skill-editor-modal/skill-editor-modal.component';
+import { ProjectCreatorModalComponent } from './modals/creators/project-creator-modal/project-creator-modal.component';
+import { ProjectEditorModalComponent } from './modals/editors/project-editor-modal/project-editor-modal.component';
+import { PersonEditorModalComponent } from './modals/editors/person-editor-modal/person-editor-modal.component';
+import { InstitutionComponent } from './portfolio-page/entity-views/institution/institution.component';
+import { InstitutionContainerComponent } from './portfolio-page/containers/institution-container/institution-container.component';
+import { InstitutionCreatorModalComponent } from './modals/creators/institution-creator-modal/institution-creator-modal.component';
+import { InstitutionEditorModalComponent } from './modals/editors/institution-editor-modal/institution-editor-modal.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +51,13 @@ import { SkillEditorModalComponent } from './modals/editors/skill-editor-modal/s
     SkillCreateModalComponent,
     ModalContainerComponent,
     SkillEditorModalComponent,
+    ProjectCreatorModalComponent,
+    ProjectEditorModalComponent,
+    PersonEditorModalComponent,
+    InstitutionComponent,
+    InstitutionContainerComponent,
+    InstitutionCreatorModalComponent,
+    InstitutionEditorModalComponent,
   ],
   imports: [
     BrowserModule,

@@ -12,6 +12,7 @@ export class PageContainerComponent {
 
   constructor(private personService: PersonService) {
     this.fetchPerson();
+    this.personService.change.subscribe(() => this.fetchPerson());
   }
 
   public get person(): Person | undefined {

@@ -15,7 +15,7 @@ export class SkillService {
 
   constructor(
     private http: HttpClient,
-    private apiRouteProvider: ApiRouteService
+    apiRouteProvider: ApiRouteService
   ) {
     this.skillUrl = apiRouteProvider.route + 'skill';
   }

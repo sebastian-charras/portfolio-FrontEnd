@@ -12,9 +12,10 @@ export class NavbarComponent {
   private _person?: Person;
   constructor(
     private loginService: LoginService,
-    private personService: PersonService,
+    private personService: PersonService
   ) {
     this.fetchPerson();
+    this.personService.change.subscribe(() => this.fetchPerson());
   }
 
   public get isLogged(): boolean {
