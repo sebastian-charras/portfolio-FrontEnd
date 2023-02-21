@@ -14,6 +14,20 @@
         edit
       </button>
       <button
+        *ngIf="!workExperience.institution"
+        class="material-symbols-outlined edit-btn m-2"
+        (click)="link()"
+      >
+        link
+      </button>
+      <button
+        *ngIf="workExperience.institution"
+        class="material-symbols-outlined edit-btn m-2"
+        (click)="linkOff()"
+      >
+        link_off
+      </button>
+      <button
         class="material-symbols-outlined delete-btn m-2"
         (click)="delete()"
       >
@@ -23,7 +37,10 @@
   </div>
   <h3 class="my-3 fs-5">
     <span *ngIf="!workExperience.completed">Actualmente - </span
-    >{{ workExperience.title + " (" + workExperience.period + ")" }}
+    >{{ workExperience.title + " (" + workExperience.period + ")"
+    }}<span *ngIf="workExperience.institution">
+      - en {{ workExperience.institution.name }}</span
+    >
   </h3>
   <p>
     {{ workExperience.description }}

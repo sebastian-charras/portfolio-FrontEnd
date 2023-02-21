@@ -34,8 +34,16 @@ export class InstitutionComponent {
 
   public delete() {
     this.institutionService
-      .deleteInstitution(Number(this._institution.id))
-      .subscribe();
+      .isReferenced(Number(this._institution.id))
+      .subscribe((isReferenced) => {
+        if (isReferenced) {
+          this.modalService.type = ModalType.ERROR_DELETE;
+        } else {
+          this.institutionService
+            .deleteInstitution(Number(this._institution.id))
+            .subscribe();
+        }
+      });
   }
 
   public edit() {

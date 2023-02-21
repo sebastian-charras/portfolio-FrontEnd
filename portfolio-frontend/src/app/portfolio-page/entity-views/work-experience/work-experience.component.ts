@@ -38,8 +38,30 @@ export class WorkExperienceComponent {
   }
 
   public delete(): void {
-    this.workExperienceService
-      .deleteWorkExperience(Number(this._workExperience.id))
-      .subscribe();
+    if (this._workExperience.institution) {
+      this.modalService.type = ModalType.ERROR_DELETE;
+    } else {
+      this.workExperienceService
+        .deleteWorkExperience(Number(this._workExperience.id))
+        .subscribe();
+    }
+  }
+
+  public link(): void {
+    this.modalService.type = ModalType.LINK_WORK_EXPERIENCE;
+    this.workExperienceService.editableWorkExperience = this._workExperience;
+  }
+
+  public linkOff(): void {
+    if (
+      this._workExperience.id !== null &&
+      this._workExperience.institution?.id !== null
+    ) {
+      this.workExperienceService
+        .removeInstitution(
+          this._workExperience.id,
+        )
+        .subscribe();
+    }
   }
 }

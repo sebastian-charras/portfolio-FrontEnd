@@ -61,4 +61,10 @@ export class InstitutionService {
   public set editableInstitution(institution: Institution | undefined) {
     this._editableInstitution = institution;
   }
+
+  public isReferenced(id: number): Observable<boolean> {
+    return this.http.get<boolean>(
+      this.institutionUrl + '/' + id + '/isReferenced'
+    );
+  }
 }

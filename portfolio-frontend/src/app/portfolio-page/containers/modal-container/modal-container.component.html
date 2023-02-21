@@ -25,3 +25,18 @@
 <app-work-experience-editor-modal
   *ngIf="type === ModalType.EDIT_WORK_EXPERIENCE"
 ></app-work-experience-editor-modal>
+<app-education-creator-modal
+  *ngIf="type === ModalType.CREATE_EDUCATION"
+></app-education-creator-modal>
+<app-education-editor-modal
+  *ngIf="type === ModalType.EDIT_EDUCATION"
+></app-education-editor-modal>
+<app-error-delete-modal
+  *ngIf="type === ModalType.ERROR_DELETE"
+></app-error-delete-modal>
+<app-education-link-modal
+  *ngIf="type === ModalType.LINK_EDUCATION"
+></app-education-link-modal>
+<app-work-experience-link-modal
+  *ngIf="type === ModalType.LINK_WORK_EXPERIENCE"
+></app-work-experience-link-modal>

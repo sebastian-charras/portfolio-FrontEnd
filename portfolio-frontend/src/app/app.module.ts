@@ -31,6 +31,12 @@ import { InstitutionCreatorModalComponent } from './modals/creators/institution-
 import { InstitutionEditorModalComponent } from './modals/editors/institution-editor-modal/institution-editor-modal.component';
 import { WorkExperienceCreatorModalComponent } from './modals/creators/work-experience-creator-modal/work-experience-creator-modal.component';
 import { WorkExperienceEditorModalComponent } from './modals/editors/work-experience-editor-modal/work-experience-editor-modal.component';
+import { EducationCreatorModalComponent } from './modals/creators/education-creator-modal/education-creator-modal.component';
+import { EducationEditorModalComponent } from './modals/editors/education-editor-modal/education-editor-modal.component';
+import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
+import { ErrorDeleteModalComponent } from './modals/error-delete-modal/error-delete-modal.component';
+import { WorkExperienceLinkModalComponent } from './modals/linkers/work-experience-link-modal/work-experience-link-modal.component';
+import { EducationLinkModalComponent } from './modals/linkers/education-link-modal/education-link-modal.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +68,12 @@ import { WorkExperienceEditorModalComponent } from './modals/editors/work-experi
     InstitutionEditorModalComponent,
     WorkExperienceCreatorModalComponent,
     WorkExperienceEditorModalComponent,
+    EducationCreatorModalComponent,
+    EducationEditorModalComponent,
+    LegalNoticeComponent,
+    ErrorDeleteModalComponent,
+    WorkExperienceLinkModalComponent,
+    EducationLinkModalComponent,
   ],
   imports: [
     BrowserModule,

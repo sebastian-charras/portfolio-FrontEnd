@@ -54,26 +54,28 @@ export class WorkExperienceService {
     workExperienceId: number,
     institutionId: number
   ): Observable<any> {
-    let httpParams: HttpParams = new HttpParams();
-    httpParams.append('institutionId', institutionId);
-    return this.http.put(this.workExperienceUrl + '/' + workExperienceId, {
-      headers: this.httpHeaders,
-      params: httpParams,
-    });
+    return this.http
+      .put(
+        this.workExperienceUrl +
+          '/' +
+          workExperienceId +
+          '/institution/' +
+          institutionId,
+        {
+          headers: this.httpHeaders,
+        }
+      )
+      .pipe(tap((_: any) => this.change.emit()));
   }
 
   public removeInstitution(
     workExperienceId: number,
-    institutionId: number
   ): Observable<any> {
-    let httpParams: HttpParams = new HttpParams();
-    httpParams.append('institutionId', institutionId);
-    return this.http.delete<WorkExperience>(
-      this.workExperienceUrl + '/' + workExperienceId,
-      {
-        params: httpParams,
-      }
-    );
+    return this.http
+      .delete<WorkExperience>(
+        this.workExperienceUrl + '/' + workExperienceId + '/institution'
+      )
+      .pipe(tap((_: any) => this.change.emit()));
   }
 
   public get change(): EventEmitter<any> {

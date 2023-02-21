@@ -1,0 +1,25 @@
+<div class="modal" tabindex="-1" [ngStyle]="{ display: 'block' }">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Error al intentar eliminar</h5>
+        <button
+          type="button"
+          class="material-symbols-outlined close-btn"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="close()"
+        >
+          close
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          Ha ocurrido un error al intentar eliminar el elemento. Esto puede
+          ocurrir porque el mismo se encuentra asociado a otro, por lo que es
+          necesario primero desasociarlo para poder luego eliminarlo.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
