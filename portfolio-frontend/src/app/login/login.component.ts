@@ -35,7 +35,7 @@ export class LoginComponent {
     let name: string = this.form.controls['user'].value;
     return {
       password: password,
-      name: name,
+      username: name,
     };
   }
 

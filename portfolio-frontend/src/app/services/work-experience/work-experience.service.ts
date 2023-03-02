@@ -3,6 +3,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { WorkExperience } from 'src/app/entities/workExperience';
 import { ApiRouteService } from '../api-route/api-route.service';
+import { HeaderService } from '../header/header.service';
 
 @Injectable({
   providedIn: 'root',
@@ -11,9 +12,8 @@ export class WorkExperienceService {
   private _change = new EventEmitter<any>();
   private _editableWorkExperience?: WorkExperience;
   private workExperienceUrl: string;
-  private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-  constructor(private http: HttpClient, apiRouteProvider: ApiRouteService) {
+  constructor(private http: HttpClient, apiRouteProvider: ApiRouteService, private headerService: HeaderService) {
     this.workExperienceUrl = apiRouteProvider.route + 'workExperience';
   }
 
@@ -28,7 +28,7 @@ export class WorkExperienceService {
   public newWorkExperience(workExperience: WorkExperience): Observable<any> {
     return this.http
       .post(this.workExperienceUrl, workExperience, {
-        headers: this.httpHeaders,
+        headers: this.headerService.headers,
       })
       .pipe(tap((_: any) => this.change.emit()));
   }
@@ -39,14 +39,16 @@ export class WorkExperienceService {
   ): Observable<any> {
     return this.http
       .put(this.workExperienceUrl + '/' + id, workExperience, {
-        headers: this.httpHeaders,
+        headers: this.headerService.headers,
       })
       .pipe(tap((_: any) => this.change.emit()));
   }
 
   public deleteWorkExperience(id: number): Observable<WorkExperience> {
     return this.http
-      .delete<WorkExperience>(this.workExperienceUrl + '/' + id)
+      .delete<WorkExperience>(this.workExperienceUrl + '/' + id, {
+        headers: this.headerService.headers,
+      })
       .pipe(tap((_: any) => this.change.emit()));
   }
 
@@ -61,8 +63,9 @@ export class WorkExperienceService {
           workExperienceId +
           '/institution/' +
           institutionId,
+          {},
         {
-          headers: this.httpHeaders,
+          headers: this.headerService.headers,
         }
       )
       .pipe(tap((_: any) => this.change.emit()));
@@ -73,7 +76,9 @@ export class WorkExperienceService {
   ): Observable<any> {
     return this.http
       .delete<WorkExperience>(
-        this.workExperienceUrl + '/' + workExperienceId + '/institution'
+        this.workExperienceUrl + '/' + workExperienceId + '/institution', {
+          headers: this.headerService.headers,
+        }
       )
       .pipe(tap((_: any) => this.change.emit()));
   }

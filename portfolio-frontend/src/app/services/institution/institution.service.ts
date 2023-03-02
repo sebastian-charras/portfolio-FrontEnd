@@ -3,6 +3,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { Institution } from 'src/app/entities/institution';
 import { ApiRouteService } from '../api-route/api-route.service';
+import { HeaderService } from '../header/header.service';
 
 @Injectable({
   providedIn: 'root',
@@ -11,9 +12,8 @@ export class InstitutionService {
   private _change = new EventEmitter<any>();
   private _editableInstitution?: Institution;
   private institutionUrl: string;
-  private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-  constructor(private http: HttpClient, apiRouteProvider: ApiRouteService) {
+  constructor(private http: HttpClient, apiRouteProvider: ApiRouteService, private headerService: HeaderService) {
     this.institutionUrl = apiRouteProvider.route + 'institution';
   }
 
@@ -28,7 +28,7 @@ export class InstitutionService {
   public newInstitution(institution: Institution): Observable<any> {
     return this.http
       .post(this.institutionUrl, institution, {
-        headers: this.httpHeaders,
+        headers: this.headerService.headers,
       })
       .pipe(tap((_: any) => this._change.emit()));
   }
@@ -39,14 +39,16 @@ export class InstitutionService {
   ): Observable<any> {
     return this.http
       .put(this.institutionUrl + '/' + id, institution, {
-        headers: this.httpHeaders,
+        headers: this.headerService.headers,
       })
       .pipe(tap((_: any) => this._change.emit()));
   }
 
   public deleteInstitution(id: number): Observable<Institution> {
     return this.http
-      .delete<Institution>(this.institutionUrl + '/' + id)
+      .delete<Institution>(this.institutionUrl + '/' + id, {
+        headers: this.headerService.headers,
+      })
       .pipe(tap((_: any) => this._change.emit()));
   }
 

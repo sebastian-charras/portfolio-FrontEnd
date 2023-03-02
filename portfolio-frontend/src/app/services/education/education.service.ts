@@ -3,6 +3,7 @@ import { Observable, tap } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { ApiRouteService } from '../api-route/api-route.service';
 import { Education } from 'src/app/entities/education';
+import { HeaderService } from '../header/header.service';
 
 @Injectable({
   providedIn: 'root',
@@ -11,9 +12,12 @@ export class EducationService {
   private _change = new EventEmitter<any>();
   private _editableEducation?: Education;
   private educationUrl: string;
-  private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-  constructor(private http: HttpClient, apiRouteProvider: ApiRouteService) {
+  constructor(
+    private http: HttpClient,
+    apiRouteProvider: ApiRouteService,
+    private headerService: HeaderService
+  ) {
     this.educationUrl = apiRouteProvider.route + 'education';
   }
 
@@ -28,7 +32,7 @@ export class EducationService {
   public newEducation(education: Education): Observable<any> {
     return this.http
       .post(this.educationUrl, education, {
-        headers: this.httpHeaders,
+        headers: this.headerService.headers,
       })
       .pipe(tap((_: any) => this.change.emit()));
   }
@@ -36,14 +40,16 @@ export class EducationService {
   public replaceEducation(id: number, education: Education): Observable<any> {
     return this.http
       .put(this.educationUrl + '/' + id, education, {
-        headers: this.httpHeaders,
+        headers: this.headerService.headers,
       })
       .pipe(tap((_: any) => this.change.emit()));
   }
 
   public deleteEducation(id: number): Observable<Education> {
     return this.http
-      .delete<Education>(this.educationUrl + '/' + id)
+      .delete<Education>(this.educationUrl + '/' + id, {
+        headers: this.headerService.headers,
+      })
       .pipe(tap((_: any) => this.change.emit()));
   }
 
@@ -53,19 +59,20 @@ export class EducationService {
   ): Observable<any> {
     return this.http
       .put(
-        this.educationUrl + '/' + educationId + '/institution/' + institutionId,
-        {
-          headers: this.httpHeaders,
-        }
+        this.educationUrl + '/' + educationId + '/institution/' + institutionId, {},
+        { headers: this.headerService.headers }
       )
       .pipe(tap((_: any) => this.change.emit()));
   }
 
-  public removeInstitution(
-    educationId: number,
-  ): Observable<any> {
+  public removeInstitution(educationId: number): Observable<any> {
     return this.http
-      .delete<Education>(this.educationUrl + '/' + educationId + '/institution')
+      .delete<Education>(
+        this.educationUrl + '/' + educationId + '/institution',
+        {
+          headers: this.headerService.headers,
+        }
+      )
       .pipe(tap((_: any) => this.change.emit()));
   }
 

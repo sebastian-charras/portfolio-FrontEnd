@@ -47,9 +47,7 @@ export class SkillEditorModalComponent {
       this.modalService.type = ModalType.HIDDEN;
       this.skillService
         .replaceSkill(Number(this.originalSkill.id), this.skill)
-        .subscribe(() => {
-          console.log('skill modificada');
-        });
+        .subscribe();
     }
   }
 

@@ -3,6 +3,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { Skill } from 'src/app/entities/skill';
 import { ApiRouteService } from '../api-route/api-route.service';
+import { HeaderService } from '../header/header.service';
 
 @Injectable({
   providedIn: 'root',
@@ -11,11 +12,11 @@ export class SkillService {
   private _change = new EventEmitter<any>();
   private _editableSkill?: Skill;
   private skillUrl: string;
-  private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   constructor(
     private http: HttpClient,
-    apiRouteProvider: ApiRouteService
+    private headerService: HeaderService, 
+    apiRouteProvider: ApiRouteService    
   ) {
     this.skillUrl = apiRouteProvider.route + 'skill';
   }
@@ -31,7 +32,7 @@ export class SkillService {
   public newSkill(skill: Skill): Observable<any> {
     return this.http
       .post(this.skillUrl, skill, {
-        headers: this.httpHeaders,
+        headers: this.headerService.headers,
       })
       .pipe(tap((_: any) => this._change.emit()));
   }
@@ -39,14 +40,16 @@ export class SkillService {
   public replaceSkill(id: number, skill: Skill): Observable<any> {
     return this.http
       .put(this.skillUrl + '/' + id, skill, {
-        headers: this.httpHeaders,
+        headers: this.headerService.headers,
       })
       .pipe(tap((_: any) => this._change.emit()));
   }
 
   public deleteSkill(id: number): Observable<Skill> {
     return this.http
-      .delete<Skill>(this.skillUrl + '/' + id)
+      .delete<Skill>(this.skillUrl + '/' + id, {
+        headers: this.headerService.headers,
+      })
       .pipe(tap((_: any) => this._change.emit()));
   }
 
