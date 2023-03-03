@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ApiRouteService {
-  private _route: string = 'https://portfolio-argentina-programa.fly.dev//api/';
+  private _route: string = 'https://portfolio-argentina-programa.fly.dev/api/';
 
   constructor() {}
 
