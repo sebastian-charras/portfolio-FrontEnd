@@ -1,35 +1,35 @@
-<div class="modal" tabindex="-1" [ngStyle]="{ display: 'block' }">
+<div [ngStyle]="{ display: 'block' }" class="modal" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Editar experiencia laboral</h5>
+        <h5 class="modal-title" i18n>Editar experiencia laboral</h5>
         <button
-          type="button"
+          (click)="close()"
+          aria-label="Close"
           class="material-symbols-outlined close-btn"
           data-bs-dismiss="modal"
-          aria-label="Close"
-          (click)="close()"
+          type="button"
         >
           close
         </button>
       </div>
-      <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+      <form (ngSubmit)="onSubmit($event)" [formGroup]="form">
         <div class="modal-body">
-          <label for="title">Título</label>
-          <input type="text" id="title" formControlName="title" />
-          <label for="period">Período (por ej. 2022 - 2023)</label>
-          <input type="text" id="period" formControlName="period" />
-          <label for="completed">¿Ya ha sido completada?</label>
-          <input type="checkbox" id="completed" formControlName="completed" />
-          <label for="description">Descripción</label>
+          <label for="title" i18n>Título</label>
+          <input formControlName="title" id="title" type="text"/>
+          <label for="period" i18n>Período (por ej. 2022 - 2023)</label>
+          <input formControlName="period" id="period" type="text"/>
+          <label for="completed" i18n>¿Ya ha sido completada?</label>
+          <input formControlName="completed" id="completed" type="checkbox"/>
+          <label for="description" i18n>Descripción</label>
           <textarea
-            type="text"
-            id="description"
             formControlName="description"
+            id="description"
+            type="text"
           ></textarea>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="material-symbols-outlined save-btn">
+          <button class="material-symbols-outlined save-btn" type="submit">
             save
           </button>
         </div>

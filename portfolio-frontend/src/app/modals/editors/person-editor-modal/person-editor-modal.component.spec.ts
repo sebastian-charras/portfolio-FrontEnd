@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PersonEditorModalComponent } from './person-editor-modal.component';
+import {PersonEditorModalComponent} from './person-editor-modal.component';
 
 describe('PersonEditorModalComponent', () => {
   let component: PersonEditorModalComponent;
@@ -8,9 +8,9 @@ describe('PersonEditorModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PersonEditorModalComponent ]
+      declarations: [PersonEditorModalComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(PersonEditorModalComponent);
     component = fixture.componentInstance;

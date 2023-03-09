@@ -1,25 +1,27 @@
 <section class="hero">
   <div class="container-question p-0 mt-md-5">
-    <p class="fs-1 max-width-70-only-small">{{ person.catchPhrase }}</p>
+    <p class="fs-1 max-width-70-only-small" i18n>{{ person.catchPhrase }}</p>
   </div>
   <div class="d-inline-flex align-items-center justify-content-center">
-    <h1 class="font-bold mx-3 text-center">
+    <h1 class="font-bold mx-3 text-center" i18n>
       Soy {{ person.name }}, {{ person.title }}
     </h1>
   </div>
   <div class="hero-img-container">
     <img
+      i18n-alt
+      alt="Foto de perfil"
       [src]="person.heroImageUrl"
-      [alt]="'Foto de ' + person.name + ' ' + person.surname"
       width="100%"
     />
   </div>
   <div class="d-flex justify-content-center my-5 contactarme-container">
     <a
       [href]="'mailto:' + person.email"
-      role="button"
       class="btn-purple fs-5 rounded-pill d-inline-block text-center text-nowrap"
-      >Contactarme</a
+      role="button"
+      i18n
+    >Contactarme</a
     >
   </div>
 </section>

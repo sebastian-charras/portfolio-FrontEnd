@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SkillCreateModalComponent } from './skill-creator-modal.component';
+import {SkillCreateModalComponent} from './skill-creator-modal.component';
 
 describe('SkillCreateModalComponent', () => {
   let component: SkillCreateModalComponent;
@@ -8,9 +8,9 @@ describe('SkillCreateModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SkillCreateModalComponent ]
+      declarations: [SkillCreateModalComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(SkillCreateModalComponent);
     component = fixture.componentInstance;

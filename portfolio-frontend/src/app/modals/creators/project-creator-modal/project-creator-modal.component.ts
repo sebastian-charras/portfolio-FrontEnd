@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ModalType } from 'src/app/entities/modalType';
-import { Project } from 'src/app/entities/project';
-import { ModalService } from 'src/app/services/modal/modal.service';
-import { ProjectService } from 'src/app/services/project/project.service';
+import {Component} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ModalType} from 'src/app/entities/modalType';
+import {Project} from 'src/app/entities/project';
+import {ModalService} from 'src/app/services/modal/modal.service';
+import {ProjectService} from 'src/app/services/project/project.service';
 
 @Component({
   selector: 'app-project-creator-modal',
@@ -11,8 +11,6 @@ import { ProjectService } from 'src/app/services/project/project.service';
   styleUrls: ['./project-creator-modal.component.css'],
 })
 export class ProjectCreatorModalComponent {
-  private _form: FormGroup;
-
   constructor(
     private formBuilder: FormBuilder,
     private modalService: ModalService,
@@ -27,9 +25,7 @@ export class ProjectCreatorModalComponent {
     });
   }
 
-  public close(): void {
-    this.modalService.type = ModalType.HIDDEN;
-  }
+  private _form: FormGroup;
 
   public get form(): FormGroup {
     return this._form;
@@ -37,13 +33,6 @@ export class ProjectCreatorModalComponent {
 
   public set form(form: FormGroup) {
     this._form = form;
-  }
-
-  public onSubmit(event: Event): void {
-    if (this.form.valid) {
-      this.modalService.type = ModalType.HIDDEN;
-      this.projectService.newProject(this.project).subscribe();
-    }
   }
 
   public get project(): Project {
@@ -61,5 +50,16 @@ export class ProjectCreatorModalComponent {
       description: description,
       url: url,
     };
+  }
+
+  public close(): void {
+    this.modalService.type = ModalType.HIDDEN;
+  }
+
+  public onSubmit(event: Event): void {
+    if (this.form.valid) {
+      this.modalService.type = ModalType.HIDDEN;
+      this.projectService.newProject(this.project).subscribe();
+    }
   }
 }

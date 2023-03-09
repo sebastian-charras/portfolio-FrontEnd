@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { Person } from 'src/app/entities/person';
-import { PersonService } from 'src/app/services/person/person.service';
+import {Component} from '@angular/core';
+import {Person} from 'src/app/entities/person';
+import {PersonService} from 'src/app/services/person/person.service';
 
 @Component({
   selector: 'app-page-container',
@@ -8,12 +8,12 @@ import { PersonService } from 'src/app/services/person/person.service';
   styleUrls: ['./page-container.component.css'],
 })
 export class PageContainerComponent {
-  private _person?: Person;
-
   constructor(private personService: PersonService) {
     this.fetchPerson();
     this.personService.change.subscribe(() => this.fetchPerson());
   }
+
+  private _person?: Person;
 
   public get person(): Person | undefined {
     return this._person;

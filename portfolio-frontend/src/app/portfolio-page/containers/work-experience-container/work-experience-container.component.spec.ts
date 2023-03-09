@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { WorkExperienceContainerComponent } from './work-experience-container.component';
+import {WorkExperienceContainerComponent} from './work-experience-container.component';
 
 describe('WorkExperienceContainerComponent', () => {
   let component: WorkExperienceContainerComponent;
@@ -8,9 +8,9 @@ describe('WorkExperienceContainerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WorkExperienceContainerComponent ]
+      declarations: [WorkExperienceContainerComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(WorkExperienceContainerComponent);
     component = fixture.componentInstance;

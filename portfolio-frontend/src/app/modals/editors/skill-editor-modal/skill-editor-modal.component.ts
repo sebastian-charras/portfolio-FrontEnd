@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { ModalType } from 'src/app/entities/modalType';
-import { Skill } from 'src/app/entities/skill';
-import { ModalService } from 'src/app/services/modal/modal.service';
-import { SkillService } from 'src/app/services/skill/skill.service';
+import {Component} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {ModalType} from 'src/app/entities/modalType';
+import {Skill} from 'src/app/entities/skill';
+import {ModalService} from 'src/app/services/modal/modal.service';
+import {SkillService} from 'src/app/services/skill/skill.service';
 
 @Component({
   selector: 'app-skill-editor-modal',
@@ -12,8 +12,8 @@ import { SkillService } from 'src/app/services/skill/skill.service';
   styleUrls: ['./skill-editor-modal.component.css'],
 })
 export class SkillEditorModalComponent {
-  private _form: FormGroup;
   private originalSkill?: Skill = this.skillService.editableSkill;
+
   constructor(
     private formBuilder: FormBuilder,
     private modalService: ModalService,
@@ -29,9 +29,7 @@ export class SkillEditorModalComponent {
     });
   }
 
-  public close(): void {
-    this.modalService.type = ModalType.HIDDEN;
-  }
+  private _form: FormGroup;
 
   public get form(): FormGroup {
     return this._form;
@@ -39,16 +37,6 @@ export class SkillEditorModalComponent {
 
   public set form(form: FormGroup) {
     this._form = form;
-  }
-
-  public onSubmit(event: Event): void {
-    if (this.originalSkill !== undefined && this.form.valid) {
-      this.skillService.editableSkill = undefined;
-      this.modalService.type = ModalType.HIDDEN;
-      this.skillService
-        .replaceSkill(Number(this.originalSkill.id), this.skill)
-        .subscribe();
-    }
   }
 
   public get skill(): Skill {
@@ -59,5 +47,19 @@ export class SkillEditorModalComponent {
       name: name,
       percentage: percentage,
     };
+  }
+
+  public close(): void {
+    this.modalService.type = ModalType.HIDDEN;
+  }
+
+  public onSubmit(event: Event): void {
+    if (this.originalSkill !== undefined && this.form.valid) {
+      this.skillService.editableSkill = undefined;
+      this.modalService.type = ModalType.HIDDEN;
+      this.skillService
+        .replaceSkill(Number(this.originalSkill.id), this.skill)
+        .subscribe();
+    }
   }
 }

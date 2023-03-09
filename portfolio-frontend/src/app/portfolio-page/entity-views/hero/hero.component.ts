@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { Person } from 'src/app/entities/person';
+import {Component, Input} from '@angular/core';
+import {Person} from 'src/app/entities/person';
 
 @Component({
   selector: 'app-hero',

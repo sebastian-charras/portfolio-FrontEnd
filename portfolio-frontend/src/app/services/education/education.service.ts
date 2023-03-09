@@ -1,16 +1,14 @@
-import { EventEmitter, Injectable } from '@angular/core';
-import { Observable, tap } from 'rxjs';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { ApiRouteService } from '../api-route/api-route.service';
-import { Education } from 'src/app/entities/education';
-import { HeaderService } from '../header/header.service';
+import {EventEmitter, Injectable} from '@angular/core';
+import {Observable, tap} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {ApiRouteService} from '../api-route/api-route.service';
+import {Education} from 'src/app/entities/education';
+import {HeaderService} from '../header/header.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EducationService {
-  private _change = new EventEmitter<any>();
-  private _editableEducation?: Education;
   private educationUrl: string;
 
   constructor(
@@ -19,6 +17,22 @@ export class EducationService {
     private headerService: HeaderService
   ) {
     this.educationUrl = apiRouteProvider.route + 'education';
+  }
+
+  private _change = new EventEmitter<any>();
+
+  public get change(): EventEmitter<any> {
+    return this._change;
+  }
+
+  private _editableEducation?: Education;
+
+  public get editableEducation(): Education | undefined {
+    return this._editableEducation;
+  }
+
+  public set editableEducation(education: Education | undefined) {
+    this._editableEducation = education;
   }
 
   public getById(id: number): Observable<Education> {
@@ -60,7 +74,7 @@ export class EducationService {
     return this.http
       .put(
         this.educationUrl + '/' + educationId + '/institution/' + institutionId, {},
-        { headers: this.headerService.headers }
+        {headers: this.headerService.headers}
       )
       .pipe(tap((_: any) => this.change.emit()));
   }
@@ -74,17 +88,5 @@ export class EducationService {
         }
       )
       .pipe(tap((_: any) => this.change.emit()));
-  }
-
-  public get change(): EventEmitter<any> {
-    return this._change;
-  }
-
-  public get editableEducation(): Education | undefined {
-    return this._editableEducation;
-  }
-
-  public set editableEducation(education: Education | undefined) {
-    this._editableEducation = education;
   }
 }

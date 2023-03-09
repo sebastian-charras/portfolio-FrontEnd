@@ -1,22 +1,22 @@
-<div class="modal" tabindex="-1" [ngStyle]="{ display: 'block' }">
+<div [ngStyle]="{ display: 'block' }" class="modal" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Asignar institución</h5>
+        <h5 class="modal-title" i18n>Asignar institución</h5>
         <button
-          type="button"
+          (click)="close()"
+          aria-label="Close"
           class="material-symbols-outlined close-btn"
           data-bs-dismiss="modal"
-          aria-label="Close"
-          (click)="close()"
+          type="button"
         >
           close
         </button>
       </div>
-      <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+      <form (ngSubmit)="onSubmit($event)" [formGroup]="form">
         <div class="modal-body">
-          <label for="institutionId">Seleccionar institución</label>
-          <select name="institutionId" id="institutionId" formControlName="institutionId">
+          <label for="institutionId" i18n>Seleccionar institución</label>
+          <select formControlName="institutionId" id="institutionId" name="institutionId">
             <option
               *ngFor="let institution of institutions"
               [ngValue]="institution.id"
@@ -26,7 +26,7 @@
           </select>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="material-symbols-outlined save-btn">
+          <button class="material-symbols-outlined save-btn" type="submit">
             save
           </button>
         </div>

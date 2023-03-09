@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { ModalType } from 'src/app/entities/modalType';
-import { ModalService } from 'src/app/services/modal/modal.service';
+import {Component} from '@angular/core';
+import {ModalType} from 'src/app/entities/modalType';
+import {ModalService} from 'src/app/services/modal/modal.service';
 
 @Component({
   selector: 'app-modal-container',
@@ -9,7 +9,9 @@ import { ModalService } from 'src/app/services/modal/modal.service';
 })
 export class ModalContainerComponent {
   readonly ModalType = ModalType;
-  constructor(private modalService: ModalService) {}
+
+  constructor(private modalService: ModalService) {
+  }
 
   public get type(): ModalType {
     return this.modalService.type;

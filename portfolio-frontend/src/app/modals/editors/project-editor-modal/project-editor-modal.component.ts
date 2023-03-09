@@ -1,10 +1,9 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { ModalType } from 'src/app/entities/modalType';
-import { Project } from 'src/app/entities/project';
-import { ModalService } from 'src/app/services/modal/modal.service';
-import { ProjectService } from 'src/app/services/project/project.service';
+import {Component} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ModalType} from 'src/app/entities/modalType';
+import {Project} from 'src/app/entities/project';
+import {ModalService} from 'src/app/services/modal/modal.service';
+import {ProjectService} from 'src/app/services/project/project.service';
 
 @Component({
   selector: 'app-project-editor-modal',
@@ -12,8 +11,8 @@ import { ProjectService } from 'src/app/services/project/project.service';
   styleUrls: ['./project-editor-modal.component.css'],
 })
 export class ProjectEditorModalComponent {
-  private _form: FormGroup;
   private originalProject?: Project = this.projectService.editableProject;
+
   constructor(
     private formBuilder: FormBuilder,
     private modalService: ModalService,
@@ -34,9 +33,7 @@ export class ProjectEditorModalComponent {
     });
   }
 
-  public close(): void {
-    this.modalService.type = ModalType.HIDDEN;
-  }
+  private _form: FormGroup;
 
   public get form(): FormGroup {
     return this._form;
@@ -44,16 +41,6 @@ export class ProjectEditorModalComponent {
 
   public set form(form: FormGroup) {
     this._form = form;
-  }
-
-  public onSubmit(event: Event): void {
-    if (this.originalProject !== undefined && this.form.valid) {
-      this.projectService.editableProject = undefined;
-      this.modalService.type = ModalType.HIDDEN;
-      this.projectService
-        .replaceProject(Number(this.originalProject.id), this.project)
-        .subscribe();
-    }
   }
 
   public get project(): Project {
@@ -71,5 +58,19 @@ export class ProjectEditorModalComponent {
       description: description,
       url: url,
     };
+  }
+
+  public close(): void {
+    this.modalService.type = ModalType.HIDDEN;
+  }
+
+  public onSubmit(event: Event): void {
+    if (this.originalProject !== undefined && this.form.valid) {
+      this.projectService.editableProject = undefined;
+      this.modalService.type = ModalType.HIDDEN;
+      this.projectService
+        .replaceProject(Number(this.originalProject.id), this.project)
+        .subscribe();
+    }
   }
 }

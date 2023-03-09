@@ -1,27 +1,27 @@
-<div class="modal" tabindex="-1" [ngStyle]="{ display: 'block' }">
+<div [ngStyle]="{ display: 'block' }" class="modal" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Agregar institución</h5>
+        <h5 class="modal-title" i18n>Agregar institución</h5>
         <button
-          type="button"
+          (click)="close()"
+          aria-label="Close"
           class="material-symbols-outlined close-btn"
           data-bs-dismiss="modal"
-          aria-label="Close"
-          (click)="close()"
+          type="button"
         >
           close
         </button>
       </div>
-      <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+      <form (ngSubmit)="onSubmit($event)" [formGroup]="form">
         <div class="modal-body">
-          <label for="name">Nombre de la institución</label>
-          <input type="text" id="name" formControlName="name" />
-          <label for="logoUrl">URL del logo</label>
-          <input type="text" id="logoUrl" formControlName="logoUrl" />
+          <label for="name" i18n>Nombre de la institución</label>
+          <input formControlName="name" id="name" type="text"/>
+          <label for="logoUrl" i18n>URL del logo</label>
+          <input formControlName="logoUrl" id="logoUrl" type="text"/>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="material-symbols-outlined save-btn">
+          <button class="material-symbols-outlined save-btn" type="submit">
             save
           </button>
         </div>

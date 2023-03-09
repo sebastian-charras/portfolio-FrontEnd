@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ModalType } from 'src/app/entities/modalType';
-import { Person } from 'src/app/entities/person';
-import { ModalService } from 'src/app/services/modal/modal.service';
-import { PersonService } from 'src/app/services/person/person.service';
+import {Component} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ModalType} from 'src/app/entities/modalType';
+import {Person} from 'src/app/entities/person';
+import {ModalService} from 'src/app/services/modal/modal.service';
+import {PersonService} from 'src/app/services/person/person.service';
 
 @Component({
   selector: 'app-person-editor-modal',
@@ -11,8 +11,8 @@ import { PersonService } from 'src/app/services/person/person.service';
   styleUrls: ['./person-editor-modal.component.css'],
 })
 export class PersonEditorModalComponent {
-  private _form: FormGroup;
   private originalPerson?: Person = this.personService.editablePerson;
+
   constructor(
     private formBuilder: FormBuilder,
     private modalService: ModalService,
@@ -53,9 +53,7 @@ export class PersonEditorModalComponent {
     });
   }
 
-  public close(): void {
-    this.modalService.type = ModalType.HIDDEN;
-  }
+  private _form: FormGroup;
 
   public get form(): FormGroup {
     return this._form;
@@ -63,16 +61,6 @@ export class PersonEditorModalComponent {
 
   public set form(form: FormGroup) {
     this._form = form;
-  }
-
-  public onSubmit(event: Event): void {
-    if (this.originalPerson !== undefined && this.form.valid) {
-      this.personService.editablePerson = undefined;
-      this.modalService.type = ModalType.HIDDEN;
-      this.personService
-        .replacePerson(Number(this.originalPerson.id), this.person)
-        .subscribe();
-    }
   }
 
   public get person(): Person {
@@ -101,5 +89,19 @@ export class PersonEditorModalComponent {
       profilePictureUrl: profilePictureUrl,
       catchPhrase: catchPhrase,
     };
+  }
+
+  public close(): void {
+    this.modalService.type = ModalType.HIDDEN;
+  }
+
+  public onSubmit(event: Event): void {
+    if (this.originalPerson !== undefined && this.form.valid) {
+      this.personService.editablePerson = undefined;
+      this.modalService.type = ModalType.HIDDEN;
+      this.personService
+        .replacePerson(Number(this.originalPerson.id), this.person)
+        .subscribe();
+    }
   }
 }

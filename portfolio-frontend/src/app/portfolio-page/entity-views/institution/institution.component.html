@@ -2,20 +2,20 @@
   <div>
     <img
       *ngIf="institution.logoUrl"
-      [src]="institution.logoUrl"
       [alt]="institution.name"
+      [src]="institution.logoUrl"
       class="m-3"
     />
     <p class="m-3">
       {{ institution.name }}
     </p>
     <div class="d-flex align-items-center justify-content-center">
-      <button class="material-symbols-outlined edit-btn m-2" (click)="edit()">
+      <button (click)="edit()" class="material-symbols-outlined edit-btn m-2">
         edit
       </button>
       <button
-        class="material-symbols-outlined delete-btn m-2"
         (click)="delete()"
+        class="material-symbols-outlined delete-btn m-2"
       >
         delete
       </button>

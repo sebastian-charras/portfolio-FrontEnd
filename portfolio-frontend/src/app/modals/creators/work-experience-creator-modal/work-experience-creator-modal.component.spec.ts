@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { WorkExperienceCreatorModalComponent } from './work-experience-creator-modal.component';
+import {WorkExperienceCreatorModalComponent} from './work-experience-creator-modal.component';
 
 describe('WorkExperienceCreatorModalComponent', () => {
   let component: WorkExperienceCreatorModalComponent;
@@ -8,9 +8,9 @@ describe('WorkExperienceCreatorModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WorkExperienceCreatorModalComponent ]
+      declarations: [WorkExperienceCreatorModalComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(WorkExperienceCreatorModalComponent);
     component = fixture.componentInstance;

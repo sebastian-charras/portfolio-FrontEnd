@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { Person } from 'src/app/entities/person';
-import { LoginService } from 'src/app/services/login/login.service';
+import {Component, Input} from '@angular/core';
+import {Person} from 'src/app/entities/person';
+import {LoginService} from 'src/app/services/login/login.service';
 
 @Component({
   selector: 'app-categories-container',
@@ -8,13 +8,10 @@ import { LoginService } from 'src/app/services/login/login.service';
   styleUrls: ['./categories-container.component.css'],
 })
 export class CategoriesContainerComponent {
-  private _person!: Person;
-
-  constructor(private loginService: LoginService) {}
-
-  public get isLogged(): boolean {
-    return this.loginService.isLogged;
+  constructor(private loginService: LoginService) {
   }
+
+  private _person!: Person;
 
   public get person(): Person {
     return this._person;
@@ -23,5 +20,9 @@ export class CategoriesContainerComponent {
   @Input()
   public set person(person: Person) {
     this._person = person;
+  }
+
+  public get isLogged(): boolean {
+    return this.loginService.isLogged;
   }
 }

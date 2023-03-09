@@ -1,19 +1,34 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { EventEmitter, Injectable } from '@angular/core';
-import { Observable, tap } from 'rxjs';
-import { Person } from 'src/app/entities/person';
-import { ApiRouteService } from '../api-route/api-route.service';
-import { HeaderService } from '../header/header.service';
+import {HttpClient} from '@angular/common/http';
+import {EventEmitter, Injectable} from '@angular/core';
+import {Observable, tap} from 'rxjs';
+import {Person} from 'src/app/entities/person';
+import {ApiRouteService} from '../api-route/api-route.service';
+import {HeaderService} from '../header/header.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PersonService {
-  private _change = new EventEmitter<any>();
-  private _editablePerson?: Person;
-  private personUrl: string;
+  private readonly personUrl: string;
+
   constructor(private http: HttpClient, apiRouteProvider: ApiRouteService, private headerService: HeaderService) {
     this.personUrl = apiRouteProvider.route + 'person';
+  }
+
+  private _change = new EventEmitter<any>();
+
+  public get change(): EventEmitter<any> {
+    return this._change;
+  }
+
+  private _editablePerson?: Person;
+
+  public get editablePerson(): Person | undefined {
+    return this._editablePerson;
+  }
+
+  public set editablePerson(project: Person | undefined) {
+    this._editablePerson = project;
   }
 
   public get(): Observable<Person> {
@@ -26,17 +41,5 @@ export class PersonService {
         headers: this.headerService.headers,
       })
       .pipe(tap((_: any) => this._change.emit()));
-  }
-
-  public get change(): EventEmitter<any> {
-    return this._change;
-  }
-
-  public get editablePerson(): Person | undefined {
-    return this._editablePerson;
-  }
-
-  public set editablePerson(project: Person | undefined) {
-    this._editablePerson = project;
   }
 }

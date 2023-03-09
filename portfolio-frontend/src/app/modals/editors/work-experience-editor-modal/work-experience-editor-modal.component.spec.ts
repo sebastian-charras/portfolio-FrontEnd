@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { WorkExperienceEditorModalComponent } from './work-experience-editor-modal.component';
+import {WorkExperienceEditorModalComponent} from './work-experience-editor-modal.component';
 
 describe('WorkExperienceEditorModalComponent', () => {
   let component: WorkExperienceEditorModalComponent;
@@ -8,9 +8,9 @@ describe('WorkExperienceEditorModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WorkExperienceEditorModalComponent ]
+      declarations: [WorkExperienceEditorModalComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(WorkExperienceEditorModalComponent);
     component = fixture.componentInstance;

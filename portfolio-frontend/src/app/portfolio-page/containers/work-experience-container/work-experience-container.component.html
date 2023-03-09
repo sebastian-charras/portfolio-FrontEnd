@@ -1,7 +1,7 @@
 <section>
-  <h2 class="my-5 mt-md-0 text-center">Experiencia Laboral</h2>
+  <h2 class="my-5 mt-md-0 text-center" i18n>Experiencia Laboral</h2>
   <div *ngIf="isLogged" class="d-flex align-items-center justify-content-center">
-    <button class="material-symbols-outlined add-btn" (click)="showCreateModal()">add</button>
+    <button (click)="showCreateModal()" class="material-symbols-outlined add-btn">add</button>
   </div>
   <app-work-experience
     *ngFor="let workExperience of workExperiences"

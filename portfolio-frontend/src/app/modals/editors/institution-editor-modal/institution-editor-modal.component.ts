@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Institution } from 'src/app/entities/institution';
-import { ModalType } from 'src/app/entities/modalType';
-import { InstitutionService } from 'src/app/services/institution/institution.service';
-import { ModalService } from 'src/app/services/modal/modal.service';
+import {Component} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Institution} from 'src/app/entities/institution';
+import {ModalType} from 'src/app/entities/modalType';
+import {InstitutionService} from 'src/app/services/institution/institution.service';
+import {ModalService} from 'src/app/services/modal/modal.service';
 
 @Component({
   selector: 'app-institution-editor-modal',
@@ -11,9 +11,9 @@ import { ModalService } from 'src/app/services/modal/modal.service';
   styleUrls: ['./institution-editor-modal.component.css'],
 })
 export class InstitutionEditorModalComponent {
-  private _form: FormGroup;
   private originalInstitution?: Institution =
     this.institutionService.editableInstitution;
+
   constructor(
     private formBuilder: FormBuilder,
     private modalService: ModalService,
@@ -31,9 +31,7 @@ export class InstitutionEditorModalComponent {
     });
   }
 
-  public close(): void {
-    this.modalService.type = ModalType.HIDDEN;
-  }
+  private _form: FormGroup;
 
   public get form(): FormGroup {
     return this._form;
@@ -41,6 +39,21 @@ export class InstitutionEditorModalComponent {
 
   public set form(form: FormGroup) {
     this._form = form;
+  }
+
+  public get institution(): Institution {
+    let name: string = this.form.controls['name'].value;
+    let logoUrl: string = this.form.controls['logoUrl'].value;
+
+    return {
+      id: null,
+      name: name,
+      logoUrl: logoUrl,
+    };
+  }
+
+  public close(): void {
+    this.modalService.type = ModalType.HIDDEN;
   }
 
   public onSubmit(event: Event): void {
@@ -54,16 +67,5 @@ export class InstitutionEditorModalComponent {
         )
         .subscribe();
     }
-  }
-
-  public get institution(): Institution {
-    let name: string = this.form.controls['name'].value;
-    let logoUrl: string = this.form.controls['logoUrl'].value;
-
-    return {
-      id: null,
-      name: name,
-      logoUrl: logoUrl,
-    };
   }
 }

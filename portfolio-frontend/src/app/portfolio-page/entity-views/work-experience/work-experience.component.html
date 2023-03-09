@@ -2,45 +2,45 @@
   <div>
     <img
       *ngIf="workExperience.institution?.logoUrl"
+      [alt]="workExperience.institution!.name"
       [src]="workExperience.institution!.logoUrl"
-      [alt]="'logo de ' + workExperience.institution!.name"
       class="mx-4"
     />
     <div
       *ngIf="isLogged"
       class="d-flex align-items-center justify-content-center"
     >
-      <button class="material-symbols-outlined edit-btn m-2" (click)="edit()">
+      <button (click)="edit()" class="material-symbols-outlined edit-btn m-2">
         edit
       </button>
       <button
+        (click)="link()"
         *ngIf="!workExperience.institution"
         class="material-symbols-outlined edit-btn m-2"
-        (click)="link()"
       >
         link
       </button>
       <button
+        (click)="linkOff()"
         *ngIf="workExperience.institution"
         class="material-symbols-outlined edit-btn m-2"
-        (click)="linkOff()"
       >
         link_off
       </button>
       <button
-        class="material-symbols-outlined delete-btn m-2"
         (click)="delete()"
+        class="material-symbols-outlined delete-btn m-2"
       >
         delete
       </button>
     </div>
   </div>
   <h3 class="my-3 fs-5">
-    <span *ngIf="!workExperience.completed">Actualmente - </span
+    <span *ngIf="!workExperience.completed" i18n>Actualmente - </span
     >{{ workExperience.title + " (" + workExperience.period + ")"
-    }}<span *ngIf="workExperience.institution">
-      - en {{ workExperience.institution.name }}</span
-    >
+    }}<span *ngIf="workExperience.institution"><ng-container i18n> - en </ng-container>
+    {{ workExperience.institution.name }}</span
+  >
   </h3>
   <p>
     {{ workExperience.description }}

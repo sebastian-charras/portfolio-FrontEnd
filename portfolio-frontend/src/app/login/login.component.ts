@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { User } from '../entities/user';
-import { LoginService } from '../services/login/login.service';
+import {Component} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {User} from '../entities/user';
+import {LoginService} from '../services/login/login.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +10,6 @@ import { LoginService } from '../services/login/login.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  private _form: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
     private loginService: LoginService,
@@ -21,6 +20,8 @@ export class LoginComponent {
       user: ['', [Validators.required, Validators.minLength(1)]],
     });
   }
+
+  private _form: FormGroup;
 
   public get form(): FormGroup {
     return this._form;

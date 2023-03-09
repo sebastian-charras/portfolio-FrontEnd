@@ -1,9 +1,9 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ModalType } from 'src/app/entities/modalType';
-import { Skill } from 'src/app/entities/skill';
-import { LoginService } from 'src/app/services/login/login.service';
-import { ModalService } from 'src/app/services/modal/modal.service';
-import { SkillService } from 'src/app/services/skill/skill.service';
+import {Component, Input} from '@angular/core';
+import {ModalType} from 'src/app/entities/modalType';
+import {Skill} from 'src/app/entities/skill';
+import {LoginService} from 'src/app/services/login/login.service';
+import {ModalService} from 'src/app/services/modal/modal.service';
+import {SkillService} from 'src/app/services/skill/skill.service';
 
 @Component({
   selector: 'app-skill',
@@ -11,16 +11,14 @@ import { SkillService } from 'src/app/services/skill/skill.service';
   styleUrls: ['./skill.component.css'],
 })
 export class SkillComponent {
-  private _skill!: Skill;
   constructor(
     private loginService: LoginService,
     private skillService: SkillService,
     private modalService: ModalService
-  ) {}
-
-  public get isLogged(): boolean {
-    return this.loginService.isLogged;
+  ) {
   }
+
+  private _skill!: Skill;
 
   public get skill(): Skill {
     return this._skill;
@@ -29,6 +27,10 @@ export class SkillComponent {
   @Input()
   public set skill(skill: Skill) {
     this._skill = skill;
+  }
+
+  public get isLogged(): boolean {
+    return this.loginService.isLogged;
   }
 
   public delete(): void {

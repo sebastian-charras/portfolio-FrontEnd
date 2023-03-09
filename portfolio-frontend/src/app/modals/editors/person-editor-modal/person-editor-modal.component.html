@@ -1,53 +1,53 @@
-<div class="modal" tabindex="-1" [ngStyle]="{ display: 'block' }">
+<div [ngStyle]="{ display: 'block' }" class="modal" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Editar informacion de la persona</h5>
+        <h5 class="modal-title" i18n>Editar informacion de la persona</h5>
         <button
-          type="button"
+          (click)="close()"
+          aria-label="Close"
           class="material-symbols-outlined close-btn"
           data-bs-dismiss="modal"
-          aria-label="Close"
-          (click)="close()"
+          type="button"
         >
           close
         </button>
       </div>
-      <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+      <form (ngSubmit)="onSubmit($event)" [formGroup]="form">
         <div class="modal-body">
-          <label for="name">Nombre</label>
-          <input type="text" id="name" formControlName="name" />
-          <label for="surname">Apellido</label>
-          <input type="text" id="surname" formControlName="surname" />
-          <label for="title">Titulo</label>
-          <input type="text" id="title" formControlName="title" />
-          <label for="description">Descripción</label>
+          <label for="name" i18n>Nombre</label>
+          <input formControlName="name" id="name" type="text"/>
+          <label for="surname" i18n>Apellido</label>
+          <input formControlName="surname" id="surname" type="text"/>
+          <label for="title" i18n>Titulo</label>
+          <input formControlName="title" id="title" type="text"/>
+          <label for="description" i18n>Descripción</label>
           <textarea
-            type="text"
-            id="description"
             formControlName="description"
+            id="description"
+            type="text"
           ></textarea>
-          <label for="email">Titulo</label>
-          <input type="email" id="email" formControlName="email" />
-          <label for="githubUrl">URL de cuenta en github</label>
-          <input type="text" id="githubUrl" formControlName="githubUrl" />
-          <label for="linkedinUrl">URL de cuenta en LinkedIn</label>
-          <input type="text" id="linkedinUrl" formControlName="linkedinUrl" />
-          <label for="heroImageUrl">URL de foto de perfil</label>
-          <input type="text" id="heroImageUrl" formControlName="heroImageUrl" />
-          <label for="profilePictureUrl"
-            >URL de foto de perfil en miniatura</label
+          <label for="email" i18n>Titulo</label>
+          <input formControlName="email" id="email" type="email"/>
+          <label for="githubUrl" i18n>URL de cuenta en github</label>
+          <input formControlName="githubUrl" id="githubUrl" type="text"/>
+          <label for="linkedinUrl" i18n>URL de cuenta en LinkedIn</label>
+          <input formControlName="linkedinUrl" id="linkedinUrl" type="text"/>
+          <label for="heroImageUrl" i18n>URL de foto de perfil</label>
+          <input formControlName="heroImageUrl" id="heroImageUrl" type="text"/>
+          <label for="profilePictureUrl" i18n
+          >URL de foto de perfil en miniatura</label
           >
           <input
-            type="text"
-            id="profilePictureUrl"
             formControlName="profilePictureUrl"
+            id="profilePictureUrl"
+            type="text"
           />
-          <label for="catchPhrase">Frase para atraer clientes</label>
-          <input type="text" id="catchPhrase" formControlName="catchPhrase" />
+          <label for="catchPhrase" i18n>Frase para atraer clientes</label>
+          <input formControlName="catchPhrase" id="catchPhrase" type="text"/>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="material-symbols-outlined save-btn">
+          <button class="material-symbols-outlined save-btn" type="submit">
             save
           </button>
         </div>

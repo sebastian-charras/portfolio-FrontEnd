@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { Education } from 'src/app/entities/education';
-import { ModalType } from 'src/app/entities/modalType';
-import { EducationService } from 'src/app/services/education/education.service';
-import { LoginService } from 'src/app/services/login/login.service';
-import { ModalService } from 'src/app/services/modal/modal.service';
+import {Component} from '@angular/core';
+import {Education} from 'src/app/entities/education';
+import {ModalType} from 'src/app/entities/modalType';
+import {EducationService} from 'src/app/services/education/education.service';
+import {LoginService} from 'src/app/services/login/login.service';
+import {ModalService} from 'src/app/services/modal/modal.service';
 
 @Component({
   selector: 'app-education-section',
@@ -11,7 +11,6 @@ import { ModalService } from 'src/app/services/modal/modal.service';
   styleUrls: ['./education-section.component.css'],
 })
 export class EducationSectionComponent {
-  private _educations: Education[] = [];
   constructor(
     private educationService: EducationService,
     private loginService: LoginService,
@@ -21,21 +20,23 @@ export class EducationSectionComponent {
     this.educationService.change.subscribe(() => this.fetchEducations());
   }
 
+  private _educations: Education[] = [];
+
+  public get educations(): Education[] {
+    return this._educations;
+  }
+
   public get isLogged(): boolean {
     return this.loginService.isLogged;
   }
 
-  public get educations(): Education[] {
-    return this._educations;
+  public showCreatorModal(): void {
+    this.modalService.type = ModalType.CREATE_EDUCATION;
   }
 
   private fetchEducations(): void {
     this.educationService.getAll().subscribe((educations) => {
       this._educations = educations;
     });
-  }
-
-  public showCreatorModal(): void {
-    this.modalService.type = ModalType.CREATE_EDUCATION;
   }
 }

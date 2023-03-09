@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Education } from 'src/app/entities/education';
-import { ModalType } from 'src/app/entities/modalType';
-import { EducationService } from 'src/app/services/education/education.service';
-import { ModalService } from 'src/app/services/modal/modal.service';
+import {Component} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Education} from 'src/app/entities/education';
+import {ModalType} from 'src/app/entities/modalType';
+import {EducationService} from 'src/app/services/education/education.service';
+import {ModalService} from 'src/app/services/modal/modal.service';
 
 @Component({
   selector: 'app-education-creator-modal',
@@ -11,8 +11,6 @@ import { ModalService } from 'src/app/services/modal/modal.service';
   styleUrls: ['./education-creator-modal.component.css'],
 })
 export class EducationCreatorModalComponent {
-  private _form: FormGroup;
-
   constructor(
     private formBuilder: FormBuilder,
     private modalService: ModalService,
@@ -26,9 +24,7 @@ export class EducationCreatorModalComponent {
     });
   }
 
-  public close(): void {
-    this.modalService.type = ModalType.HIDDEN;
-  }
+  private _form: FormGroup;
 
   public get form(): FormGroup {
     return this._form;
@@ -36,13 +32,6 @@ export class EducationCreatorModalComponent {
 
   public set form(form: FormGroup) {
     this._form = form;
-  }
-
-  public onSubmit(event: Event): void {
-    if (this.form.valid) {
-      this.modalService.type = ModalType.HIDDEN;
-      this.educationService.newEducation(this.education).subscribe();
-    }
   }
 
   public get education(): Education {
@@ -59,5 +48,16 @@ export class EducationCreatorModalComponent {
       completed: completed,
       description: description,
     };
+  }
+
+  public close(): void {
+    this.modalService.type = ModalType.HIDDEN;
+  }
+
+  public onSubmit(event: Event): void {
+    if (this.form.valid) {
+      this.modalService.type = ModalType.HIDDEN;
+      this.educationService.newEducation(this.education).subscribe();
+    }
   }
 }

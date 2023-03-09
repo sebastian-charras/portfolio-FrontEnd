@@ -1,9 +1,9 @@
-import { Component, Input } from '@angular/core';
-import { Education } from 'src/app/entities/education';
-import { ModalType } from 'src/app/entities/modalType';
-import { EducationService } from 'src/app/services/education/education.service';
-import { LoginService } from 'src/app/services/login/login.service';
-import { ModalService } from 'src/app/services/modal/modal.service';
+import {Component, Input} from '@angular/core';
+import {Education} from 'src/app/entities/education';
+import {ModalType} from 'src/app/entities/modalType';
+import {EducationService} from 'src/app/services/education/education.service';
+import {LoginService} from 'src/app/services/login/login.service';
+import {ModalService} from 'src/app/services/modal/modal.service';
 
 @Component({
   selector: 'app-education',
@@ -11,17 +11,14 @@ import { ModalService } from 'src/app/services/modal/modal.service';
   styleUrls: ['./education.component.css'],
 })
 export class EducationComponent {
-  private _education!: Education;
-
   constructor(
     private loginService: LoginService,
     private educationService: EducationService,
     private modalService: ModalService
-  ) {}
-
-  public get isLogged(): boolean {
-    return this.loginService.isLogged;
+  ) {
   }
+
+  private _education!: Education;
 
   public get education(): Education {
     return this._education;
@@ -30,6 +27,10 @@ export class EducationComponent {
   @Input()
   public set education(education: Education) {
     this._education = education;
+  }
+
+  public get isLogged(): boolean {
+    return this.loginService.isLogged;
   }
 
   public delete(): void {

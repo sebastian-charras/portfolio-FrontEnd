@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ModalType } from 'src/app/entities/modalType';
-import { WorkExperience } from 'src/app/entities/workExperience';
-import { ModalService } from 'src/app/services/modal/modal.service';
-import { WorkExperienceService } from 'src/app/services/work-experience/work-experience.service';
+import {Component} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ModalType} from 'src/app/entities/modalType';
+import {WorkExperience} from 'src/app/entities/workExperience';
+import {ModalService} from 'src/app/services/modal/modal.service';
+import {WorkExperienceService} from 'src/app/services/work-experience/work-experience.service';
 
 @Component({
   selector: 'app-work-experience-editor-modal',
@@ -11,9 +11,9 @@ import { WorkExperienceService } from 'src/app/services/work-experience/work-exp
   styleUrls: ['./work-experience-editor-modal.component.css'],
 })
 export class WorkExperienceEditorModalComponent {
-  private _form: FormGroup;
   private originalWorkExperience?: WorkExperience =
     this.workExperienceService.editableWorkExperience;
+
   constructor(
     private formBuilder: FormBuilder,
     private modalService: ModalService,
@@ -39,9 +39,7 @@ export class WorkExperienceEditorModalComponent {
     });
   }
 
-  public close(): void {
-    this.modalService.type = ModalType.HIDDEN;
-  }
+  private _form: FormGroup;
 
   public get form(): FormGroup {
     return this._form;
@@ -49,19 +47,6 @@ export class WorkExperienceEditorModalComponent {
 
   public set form(form: FormGroup) {
     this._form = form;
-  }
-
-  public onSubmit(event: Event): void {
-    if (this.originalWorkExperience !== undefined && this.form.valid) {
-      this.workExperienceService.editableWorkExperience = undefined;
-      this.modalService.type = ModalType.HIDDEN;
-      this.workExperienceService
-        .replaceWorkExperience(
-          Number(this.originalWorkExperience.id),
-          this.workExperience
-        )
-        .subscribe();
-    }
   }
 
   public get workExperience(): WorkExperience {
@@ -78,5 +63,22 @@ export class WorkExperienceEditorModalComponent {
       completed: completed,
       description: description,
     };
+  }
+
+  public close(): void {
+    this.modalService.type = ModalType.HIDDEN;
+  }
+
+  public onSubmit(event: Event): void {
+    if (this.originalWorkExperience !== undefined && this.form.valid) {
+      this.workExperienceService.editableWorkExperience = undefined;
+      this.modalService.type = ModalType.HIDDEN;
+      this.workExperienceService
+        .replaceWorkExperience(
+          Number(this.originalWorkExperience.id),
+          this.workExperience
+        )
+        .subscribe();
+    }
   }
 }

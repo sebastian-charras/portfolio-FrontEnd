@@ -1,4 +1,4 @@
-import { Institution } from './institution';
+import {Institution} from './institution';
 
 export interface Education {
   id: number | null;

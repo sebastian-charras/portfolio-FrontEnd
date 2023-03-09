@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { Person } from '../entities/person';
-import { LoginService } from '../services/login/login.service';
-import { PersonService } from '../services/person/person.service';
+import {Component} from '@angular/core';
+import {Person} from '../entities/person';
+import {LoginService} from '../services/login/login.service';
+import {PersonService} from '../services/person/person.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +9,6 @@ import { PersonService } from '../services/person/person.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent {
-  private _person?: Person;
   constructor(
     private loginService: LoginService,
     private personService: PersonService
@@ -18,12 +17,14 @@ export class NavbarComponent {
     this.personService.change.subscribe(() => this.fetchPerson());
   }
 
-  public get isLogged(): boolean {
-    return this.loginService.isLogged;
-  }
+  private _person?: Person;
 
   public get person(): Person | undefined {
     return this._person;
+  }
+
+  public get isLogged(): boolean {
+    return this.loginService.isLogged;
   }
 
   public logOut(): void {

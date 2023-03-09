@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SkillEditorModalComponent } from './skill-editor-modal.component';
+import {SkillEditorModalComponent} from './skill-editor-modal.component';
 
 describe('SkillEditorModalComponent', () => {
   let component: SkillEditorModalComponent;
@@ -8,9 +8,9 @@ describe('SkillEditorModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SkillEditorModalComponent ]
+      declarations: [SkillEditorModalComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(SkillEditorModalComponent);
     component = fixture.componentInstance;

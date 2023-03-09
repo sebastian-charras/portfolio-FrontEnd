@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ModalContainerComponent } from './modal-container.component';
+import {ModalContainerComponent} from './modal-container.component';
 
 describe('ModalContainerComponent', () => {
   let component: ModalContainerComponent;
@@ -8,9 +8,9 @@ describe('ModalContainerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ModalContainerComponent ]
+      declarations: [ModalContainerComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(ModalContainerComponent);
     component = fixture.componentInstance;

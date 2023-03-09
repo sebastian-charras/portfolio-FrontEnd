@@ -1,24 +1,38 @@
-import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { EventEmitter, Injectable } from '@angular/core';
-import { Observable, tap } from 'rxjs';
-import { Skill } from 'src/app/entities/skill';
-import { ApiRouteService } from '../api-route/api-route.service';
-import { HeaderService } from '../header/header.service';
+import {HttpClient} from '@angular/common/http';
+import {EventEmitter, Injectable} from '@angular/core';
+import {Observable, tap} from 'rxjs';
+import {Skill} from 'src/app/entities/skill';
+import {ApiRouteService} from '../api-route/api-route.service';
+import {HeaderService} from '../header/header.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SkillService {
-  private _change = new EventEmitter<any>();
-  private _editableSkill?: Skill;
   private skillUrl: string;
 
   constructor(
     private http: HttpClient,
-    private headerService: HeaderService, 
-    apiRouteProvider: ApiRouteService    
+    private headerService: HeaderService,
+    apiRouteProvider: ApiRouteService
   ) {
     this.skillUrl = apiRouteProvider.route + 'skill';
+  }
+
+  private _change = new EventEmitter<any>();
+
+  public get change(): EventEmitter<any> {
+    return this._change;
+  }
+
+  private _editableSkill?: Skill;
+
+  public get editableSkill(): Skill | undefined {
+    return this._editableSkill;
+  }
+
+  public set editableSkill(skill: Skill | undefined) {
+    this._editableSkill = skill;
   }
 
   public getById(id: number): Observable<Skill> {
@@ -51,17 +65,5 @@ export class SkillService {
         headers: this.headerService.headers,
       })
       .pipe(tap((_: any) => this._change.emit()));
-  }
-
-  public get change(): EventEmitter<any> {
-    return this._change;
-  }
-
-  public get editableSkill(): Skill | undefined {
-    return this._editableSkill;
-  }
-
-  public set editableSkill(skill: Skill | undefined) {
-    this._editableSkill = skill;
   }
 }
